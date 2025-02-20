@@ -1,0 +1,5 @@
+C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\MySolution\MySolution\obj\Debug\net5.0\MySolution.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\MySolution\MySolution\obj\Debug\net5.0\MySolution.AssemblyInfoInputs.cache
+C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\MySolution\MySolution\obj\Debug\net5.0\MySolution.AssemblyInfo.cs
+C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\MySolution\MySolution\obj\Debug\net5.0\MySolution.csproj.CoreCompileInputs.cache
+C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\MySolution\MySolution\obj\Debug\net5.0\MySolution.sourcelink.json
