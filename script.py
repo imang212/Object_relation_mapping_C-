@@ -9,9 +9,6 @@ def create_solution_structure(solution_name):
     f"{solution_name}/{solution_name}/Properties",
     f"{solution_name}/{solution_name}.Tests/Properties"
   ]
-  
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
 
   # Create the directories
   for directory in directories:
