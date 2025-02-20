@@ -1053,31 +1053,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\imang\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\skyre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\Entitity_relation_mapping\\Entitity_relation_mapping\\Entitity_relation_mapping.csproj",
+      "projectUniqueName": "C:\\Users\\skyre\\Documents\\GitHub\\Object_relation_mapping_C-\\Entitity_relation_mapping\\Entitity_relation_mapping\\Entitity_relation_mapping.csproj",
       "projectName": "Entitity_relation_mapping",
-      "projectPath": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\Entitity_relation_mapping\\Entitity_relation_mapping\\Entitity_relation_mapping.csproj",
-      "packagesPath": "C:\\Users\\imang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\Entitity_relation_mapping\\Entitity_relation_mapping\\obj\\",
+      "projectPath": "C:\\Users\\skyre\\Documents\\GitHub\\Object_relation_mapping_C-\\Entitity_relation_mapping\\Entitity_relation_mapping\\Entitity_relation_mapping.csproj",
+      "packagesPath": "C:\\Users\\skyre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\skyre\\Documents\\GitHub\\Object_relation_mapping_C-\\Entitity_relation_mapping\\Entitity_relation_mapping\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\imang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\skyre\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
