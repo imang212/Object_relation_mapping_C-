@@ -1,1 +1,1 @@
-## Objektově relation mapping
+## Object relation mapping
