@@ -2,9 +2,6 @@ import os
 import subprocess
 import sys
 
-def open_new_command_line():
-  subprocess.run(["start", "cmd", "/K"], shell=True)
-
 class PostgreManager:
   @staticmethod
   def start():
@@ -47,13 +44,20 @@ class PostgreManager:
   
   @staticmethod
   def set(path):
+    if path == None:
+      path = os.path.join(os.path.dirname(__file__), "postgresql")
+      
     with open(os.path.join(os.path.dirname(__file__), ".aria", 'pg_path.txt'), 'w') as file:
       file.write(path)
     print("Saved.")
   
   @staticmethod
-  def install_postgre(path):
+  def install_postgre(path:str = None):
+    path = path if path else os.path.join(os.path.dirname(__file__), "postgre")
     try:
+      # Create the directory if it doesn't exist
+      os.makedirs(path, exist_ok=True)
+      
       # Download PostgreSQL server
       subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-13.3-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
       
@@ -80,7 +84,6 @@ class PostgreManager:
       
     elif len(command) >= 1 and command[0] == "path":
       if len(command) >= 3 and command[1] == "set":
-        path = " ".join(command[2:])
         PostgreManager.set(path)
       elif len(command) >= 2 and command[1] == "get":
         print(PostgreManager._pg_path())
@@ -88,11 +91,7 @@ class PostgreManager:
         print("Usage: path [set <path>|get]")
         
     elif len(command) >= 1 and command[0] == "install":
-      if len(command) >= 2:
-        PostgreManager.install_postgre(command[1])
-      else:
-        print("Usage: install <path>")
-        sys.exit(1)
+      PostgreManager.install_postgre(command[1] if len(command) >= 2 else None)
         
     elif len(command) >= 1 and command[0] == "help":
       print("Commands for postgre")
@@ -114,20 +113,47 @@ class HelpManager:
   def resolve_command(command):
     print("Commands")
     print("help - Show this help message")
+    print("faq - Frequently Asked Questions")
     print("postgre - Manage PostgreSQL server")
     print("exit - Exit the program")
 
+class FAQManager:
+  @staticmethod
+  def resolve_command(command):
+    if len(command) == 0:
+      print("FAQ")
+      print("1. What is pg_path and py_path?")
+      print("   - pg_path is the path to the PostgreSQL installation directory.")
+      print("   - py_path is the path to the Python installation directory.")
+      print("2. This tool failed installing PostgreSQL. What now?")
+      print("   - You tried to install PostgreSQL by running the 'postgre install <path>' command.")
+      print("   - Alternatively, you can manually install PostgreSQL by downloading it from the official website (https://www.postgresql.org/download/), running the installer, and following the installation instructions.")
+      print("   - You can start the PostgreSQL server by running the 'pg_ctl start -D <data_directory>' command in the PostgreSQL command line interface.")
+      print("   - You can stop the PostgreSQL server by running the 'pg_ctl stop -D <data_directory>' command in the PostgreSQL command line interface.")
+      print("5. How do I get help with commands?")
+      print("   - You can get help with commands by running the 'help' command.")
+    else:
+      print("Unknown FAQ command.")
+
 def main():
+  if not os.path.exists(os.path.join(os.path.dirname(__file__), ".aria", "has_been_run_before.check")):
+    display_first_time_message()
   command = ""
   
   while True:
-    command = input("Enter command: ").strip().split()
+    command_line = input("Enter command: ")
+    command = command_line.strip().split()
+    os.system("clear")
+    print(">", command_line)
+    print()
     
     if len(command) == 0:
       print("Unknown command. Use help.")
       continue
     
     elif len(command) >= 1 and command[0] == "exit":
+      print("Bye!")
+      print()
       break
     
     elif len(command) >= 1 and command[0] == "postgre":
@@ -136,8 +162,31 @@ def main():
     elif len(command) >= 1 and command[0] == "help":
       HelpManager.resolve_command(command[1:])
     
+    elif len(command) >= 1 and command[0] == "faq":
+      FAQManager.resolve_command(command[1:])
+    
     else:
       print("Unknown command. Use help.")
-  
+    
+    print()
+
+def reopen():
+  subprocess.run([sys.executable, __file__])
+
+def display_first_time_message():
+  print()
+  print("Welcome! It looks like this is your first time running the script.")
+  print("We recommend you to run the following commands to get started:")
+  print("    faq - Frequently Asked Questions")
+  print("    help - Show help message")
+  print("    <command> help - Get help for a specific command")
+  os.makedirs(os.path.join(os.path.dirname(__file__), ".aria"), exist_ok=True)
+  with open(os.path.join(os.path.dirname(__file__), ".aria", "has_been_run_before.check"), 'w') as file:
+    file.write("This file is used to check if the script has been run before.")
+  print()
+
 if __name__ == "__main__":
-  main()
+  if len(sys.argv) > 1 and sys.argv[1] == "batch":
+    reopen()
+  else:
+    main()
