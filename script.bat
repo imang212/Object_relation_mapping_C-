@@ -1,1 +1,1 @@
-C:\Users\skyre\AppData\Local\Programs\Python\Python313\python.exe %cd%\script.py
+python %cd%\script.py
