@@ -1,4 +1,4 @@
-## Objektově relační mapování
+## Objektově relační mapován, Entity framework
 ### Skript na instalaci databáze
 Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
 ### Operace s databází
