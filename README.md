@@ -1,1 +1,1 @@
-## Object relation mapping
+## Objektově relační mapování
