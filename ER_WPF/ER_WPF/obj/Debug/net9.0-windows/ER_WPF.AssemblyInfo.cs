@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ER_WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d65079021f3126c71d4b2e1d92593255990b3cde")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fed80801a2cba7f3497f88049b9d237e0452b7ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("ER_WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ER_WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
