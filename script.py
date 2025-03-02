@@ -1,6 +1,7 @@
 import os
 import subprocess
 import sys
+import zipfile
 
 class PostgreManager:
   @staticmethod
@@ -13,7 +14,8 @@ class PostgreManager:
       return
 
     os.chdir(pg_path)
-    subprocess.run([os.path.join(pg_path, "pg_ctl"), "start", "-D", db_path])
+    print(os.path.join(pg_path, "bin", "pg_ctl"))
+    subprocess.run([os.path.join(pg_path, "bin", "pg_ctl"), "start", "-D", db_path])
     print("Started postgresql server.")
   
   @staticmethod
@@ -26,7 +28,7 @@ class PostgreManager:
       return
 
     os.chdir(pg_path)
-    subprocess.run([os.path.join(pg_path, "pg_ctl"), "stop", "-D", db_path])
+    subprocess.run([os.path.join(pg_path, "bin", "pg_ctl"), "stop", "-D", db_path])
     print("Stopped postgresql server.")
   
   @staticmethod
@@ -59,17 +61,39 @@ class PostgreManager:
       os.makedirs(path, exist_ok=True)
       
       # Download PostgreSQL server
-      subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-13.3-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
+      subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
+      #subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-13.3-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
       
       # Unzip the downloaded file
-      subprocess.run(["unzip", os.path.join(path, "postgresql.zip"), "-d", path], check=True)
+      PostgreManager._unzip_file(os.path.join(path, "postgresql.zip"), path)
+      #subprocess.run(["unzip", os.path.join(path, "postgresql.zip"), "-d", path], check=True)
       
       # Set the path to the text file
-      PostgreManager.set(path)
+      PostgreManager.set(os.path.join(path, "pgsql"))
       
       print("PostgreSQL installed successfully.")
     except subprocess.CalledProcessError as e:
       print(f"Error during installation: {e}")
+      
+      PostgreManager.uninstall_postgre(path)
+  
+  @staticmethod
+  def uninstall_postgre(path:str = None):
+    path = path if path else os.path.join(os.path.dirname(__file__), "postgre")
+    print("Uninstalling.")
+    try:
+      if os.path.exists(path):
+        subprocess.run(["rm", "-rf", path], check=True)
+        print(f"PostgreSQL uninstalled successfully from {path}.")
+      else:
+        print(f"Path {path} does not exist.")
+    except subprocess.CalledProcessError as e:
+      print(f"Error during uninstallation: {e}")
+  
+  @staticmethod
+  def reinstall_postgre(path:str = None):
+    PostgreManager.uninstall_postgre(path)
+    PostgreManager.install_postgre(path)
   
   @staticmethod
   def resolve_command(command):
@@ -93,6 +117,12 @@ class PostgreManager:
     elif len(command) >= 1 and command[0] == "install":
       PostgreManager.install_postgre(command[1] if len(command) >= 2 else None)
         
+    elif len(command) >= 1 and command[0] == "uninstall":
+      PostgreManager.uninstall_postgre(command[1] if len(command) >= 2 else None)
+        
+    elif len(command) >= 1 and command[0] == "reinstall":
+      PostgreManager.reinstall_postgre(command[1] if len(command) >= 2 else None)
+        
     elif len(command) >= 1 and command[0] == "help":
       print("Commands for postgre")
       print("postgre start - Start PostgreSQL server")
@@ -108,6 +138,21 @@ class PostgreManager:
     else:
       print("Unknown command.") 
 
+  @staticmethod
+  def _unzip_file(zip_path, extract_to):
+    try:
+      with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        for file_info in zip_ref.infolist():
+          try:
+            zip_ref.extract(file_info, extract_to)
+            print(f"Unzipped {file_info.filename} to {extract_to}")
+          except (zipfile.BadZipFile, Exception) as e:
+            print(f"Error unzipping {file_info.filename}: {e}")
+    except (zipfile.BadZipFile, Exception) as e:
+      print(f"Error opening zip file {zip_path}: {e}")
+      return False
+    return True
+  
 class HelpManager:
   @staticmethod
   def resolve_command(command):
