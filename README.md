@@ -4,6 +4,8 @@ Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
 ### Operace s databází
 Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation form).
 
+![alt text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*vK7NzagpDws_lSJYeKV8Yw.png)
+![alt text](https://www.tutorialspoint.com/entity_framework/images/conceptual_model.jpg)
 Otevřeme NuGet Package Manager: Klikněte pravým tlačítkem na projekt v Solution Exploreru a vyberte Manage NuGet Packages.
 Procházet: Přepněte na záložku Browse.
 Vyhledejte Entity Framework: Zadejte Microsoft.EntityFrameworkCore do vyhledávacího pole.
