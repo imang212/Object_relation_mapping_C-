@@ -24,6 +24,10 @@ postgre help
 !Pozor! - pokud máme již vytvořený nějaký postgre server na port 5432, tak nepůjde spustit. To se dá vyřešit smazáním serveru nebo změnou portu.
 
 Příkazový řádek se nesmí vypínat, jinak se vypne i server.
+
+Model databáze.:
+![database_model](https://github.com/user-attachments/assets/1687c886-5546-42ae-9f09-16571a06b1a7)
+
 ### Operace s databází
 Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation form).
 
