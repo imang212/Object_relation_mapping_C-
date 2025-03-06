@@ -3,6 +3,7 @@
 Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
 
 Otevřeme bat soubor script.bat, kde se spustí python script v příkazoví řádce.
+![image](https://github.com/user-attachments/assets/08bcaf06-604c-4c96-a7a3-9b784b91ab85)
 
 Pokud nemáme nainstalovaný postgre, tak zadáme následující příkaz.
 ```
@@ -17,6 +18,8 @@ Spustíme server.
 postgre start
 ```
 !Pozor! - pokud máme již vytvořený nějaký postgre server na port 5432, tak nepůjde spustit. To se dá vyřešit smazáním serveru nebo změnou portu.
+
+Příkazový řádek se nesmí vypínat, jinak se vypne i server.
 ### Operace s databází
 Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation form).
 
