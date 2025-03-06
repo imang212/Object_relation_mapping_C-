@@ -11,26 +11,24 @@ using System;
 using System.Linq;
 using System.Windows;
 using ER_WPF.Data;
-using ER_WPF.Models;
 
 namespace ER_WPF;
 
 
 public partial class MainWindow : Window
 {
-    private PokemonDataContext dbContext;
+    private readonly PokemonDataContext _context;
+
     public MainWindow()
     {
         InitializeComponent();
-        dbContext = new PokemonDataContext();
+        _context = new PokemonDataContext();
+        LoadData();
     }
-    private void Window_loaded(object sender,RoutedEventArgs e)
+
+    private void LoadData()
     {
-        LoadPokemons();
-    }
-    private void LoadPokemons()
-    {
-        var pokemons = dbContext.Pokemons.ToList();
-        PokemonsListBox.ItemsSource = pokemons;
+        var abilities = _context.Ability.ToList();
+        PokemonDataGrid.ItemsSource = abilities;
     }
 }

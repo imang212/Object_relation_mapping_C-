@@ -1,1 +1,1 @@
-C:\Program Files\PostgreSQL\17
+C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\postgre\pgsql
