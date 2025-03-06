@@ -35,9 +35,13 @@ Procházet: Přepněte na záložku Browse.
 Vyhledejte Entity Framework: Zadejte Microsoft.EntityFrameworkCore do vyhledávacího pole.
 Nainstalujte potřebné balíčky nejnovější verze:
 ```
-Install-Package Microsoft.EntityFrameworkCore 
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.Design
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 ```
+
 1. Soubor/y, kde budou udělané modely tříd s názvy entit té databáze.. (Vytvoření modelové třídy)
 2. Připojení k serveru DBMS, jakoby context třída, která dědí DbContext a je tam set těch dat z databáze. (uzivatel=postgre,heslo=admin)
 3. Soubor, kde se budou dělat CRUD operace. Insert, Update, Delete, User, Query - C#
