@@ -37,4 +37,14 @@ public partial class MainWindow : Window
 
         PokemonDataGrid.ItemsSource = abilities;
     }
+    private void SearchButton_Click(object sender, RoutedEventArgs e)
+    {
+        string searchTerm = SearchTextBox.Text;
+
+        var searchResults = _context.pokemon
+            .Where(p => p.name.Contains(searchTerm))
+            .ToList();
+
+        PokemonDataGrid.ItemsSource = searchResults;
+    }
 }
