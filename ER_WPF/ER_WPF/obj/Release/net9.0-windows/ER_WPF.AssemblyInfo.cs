@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ER_WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5809208ef0d1d5c0bd59c2d2be2cbc23a5ac3843")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e819455c0c5adb304daebe661a787d8b25fa5f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ER_WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ER_WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,6 +8,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="NováSložka\**" />
+    <EmbeddedResource Remove="NováSložka\**" />
+    <None Remove="NováSložka\**" />
+    <Page Remove="NováSložka\**" />
+  </ItemGroup>
+
 <ItemGroup>
 	<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">

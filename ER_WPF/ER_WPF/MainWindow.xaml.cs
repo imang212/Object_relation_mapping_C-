@@ -28,7 +28,13 @@ public partial class MainWindow : Window
 
     private void LoadData()
     {
-        var abilities = _context.Ability.ToList();
+        var abilities = _context.ability.ToList();
+        var moves = _context.move.ToList();
+        var pokemons = _context.pokemon.ToList();
+        var pokemon_species= _context.pokemon_species.ToList();
+        var pokemon_moves = _context.pokemon_move.ToList();
+        var evolution_chains = _context.evolution_chain.ToList();
+
         PokemonDataGrid.ItemsSource = abilities;
     }
 }
