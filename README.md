@@ -26,7 +26,9 @@ Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation 
 Otevřeme NuGet Package Manager: Klikněte pravým tlačítkem na projekt v Solution Exploreru a vyberte Manage NuGet Packages.
 Procházet: Přepněte na záložku Browse.
 Vyhledejte Entity Framework: Zadejte Microsoft.EntityFrameworkCore do vyhledávacího pole.
-Nainstalujte: Nainstalujte nejnovější verzi Microsoft.EntityFrameworkCore a Microsoft.EntityFrameworkCore.SqlServer.
+Nainstalujte balíčky nejnovější verze:
+Microsoft.EntityFrameworkCore 
+Npgsql.EntityFrameworkCore.PostgreSQL
 
 1. Soubor/y, kde budou udělané modely tříd s názvy entit té databáze.. (Vytvoření modelové třídy)
 2. Připojení k serveru DBMS, jakoby context třída, která dědí DbContext a je tam set těch dat z databáze. (uzivatel=postgre,heslo=admin)
