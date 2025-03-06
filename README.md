@@ -32,8 +32,7 @@ Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation 
 
 Otevřeme NuGet Package Manager: Klikněte pravým tlačítkem na projekt v Solution Exploreru a vyberte Manage NuGet Packages.
 Procházet: Přepněte na záložku Browse.
-Vyhledejte Entity Framework: Zadejte Microsoft.EntityFrameworkCore do vyhledávacího pole.
-Nainstalujte potřebné balíčky nejnovější verze:
+Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze:
 ```
 Install-Package Microsoft.EntityFrameworkCore
 Install-Package Microsoft.EntityFrameworkCore.Design
@@ -55,6 +54,10 @@ cd C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER
 Přidáme migrace.
 ```
 dotnet ef migrations add InitialCreate --project ER_WPF.csproj
+```
+Nebo.:
+```
+dotnet ef migrations add InitialCreate
 ```
 
 ### Aplikační část
