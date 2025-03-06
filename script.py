@@ -166,7 +166,7 @@ class PostgreManager:
       
     elif len(command) >= 1 and command[0] == "path":
       if len(command) >= 3 and command[1] == "set":
-        path = str.join(command[2:]) if len(command) > 3 else command[2]
+        path = str.join(command[2:]) if len(command) > 4 else command[2]
         PostgreManager.set(path)
       elif len(command) >= 2 and command[1] == "get":
         print(PostgreManager._pg_path())
