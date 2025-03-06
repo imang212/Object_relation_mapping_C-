@@ -19,3 +19,11 @@ C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WP
 C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF.pdb
 C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF.genruntimeconfig.cache
 C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ref\ER_WPF.dll
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF.csproj.AssemblyReference.cache
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF_MarkupCompile.cache
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF_MarkupCompile.lref
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF.dll
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\refint\ER_WPF.dll
+C:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\ER_WPF\ER_WPF\obj\Debug\net9.0-windows\ER_WPF.pdb

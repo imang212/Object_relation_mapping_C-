@@ -2747,23 +2747,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\imang\\.nuget\\packages\\": {},
+    "C:\\Users\\skyre\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
+      "projectUniqueName": "C:\\Users\\skyre\\Documents\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
       "projectName": "ER_WPF",
-      "projectPath": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
-      "packagesPath": "C:\\Users\\imang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\obj\\",
+      "projectPath": "C:\\Users\\skyre\\Documents\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
+      "packagesPath": "C:\\Users\\skyre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\skyre\\Documents\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\imang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\skyre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -1,7 +1,15 @@
 import os
+import shutil
 import subprocess
 import sys
+import time
 import zipfile
+
+try:
+    import requests
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "requests"])
+    import requests
 
 class PostgreManager:
   @staticmethod
@@ -16,7 +24,6 @@ class PostgreManager:
     os.chdir(pg_path)
     print(os.path.join(pg_path, "bin", "pg_ctl"))
     subprocess.run([os.path.join(pg_path, "bin", "pg_ctl"), "start", "-D", db_path])
-    print("Started postgresql server.")
   
   @staticmethod
   def stop():
@@ -35,6 +42,14 @@ class PostgreManager:
   def _pg_path() -> str:
     try:
       with open(os.path.join(os.path.dirname(__file__), ".aria", 'pg_path.txt'), 'r') as file:
+        return file.read().strip()
+    except FileNotFoundError:
+      return None
+  
+  @staticmethod
+  def _py_path() -> str:
+    try:
+      with open(os.path.join(os.path.dirname(__file__), ".aria", 'py_path.txt'), 'r') as file:
         return file.read().strip()
     except FileNotFoundError:
       return None
@@ -61,10 +76,17 @@ class PostgreManager:
       os.makedirs(path, exist_ok=True)
       
       # Download PostgreSQL server
-      subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
+      #subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
       #subprocess.run(["wget", "https://get.enterprisedb.com/postgresql/postgresql-13.3-1-windows-x64-binaries.zip", "-O", os.path.join(path, "postgresql.zip")], check=True)
       
+      print("Downloading...")
+      url = "https://get.enterprisedb.com/postgresql/postgresql-17.4-1-windows-x64-binaries.zip"
+      response = requests.get(url)
+      with open(os.path.join(path, "postgresql.zip"), 'wb') as file:
+        file.write(response.content)
+      
       # Unzip the downloaded file
+      print("Unzipping...")
       PostgreManager._unzip_file(os.path.join(path, "postgresql.zip"), path)
       #subprocess.run(["unzip", os.path.join(path, "postgresql.zip"), "-d", path], check=True)
       
@@ -74,8 +96,10 @@ class PostgreManager:
       print("PostgreSQL installed successfully.")
     except subprocess.CalledProcessError as e:
       print(f"Error during installation: {e}")
-      
-      PostgreManager.uninstall_postgre(path)
+      try:
+        PostgreManager.uninstall_postgre(path)
+      except:
+        print("Fatal error")
   
   @staticmethod
   def uninstall_postgre(path:str = None):
@@ -83,7 +107,7 @@ class PostgreManager:
     print("Uninstalling.")
     try:
       if os.path.exists(path):
-        subprocess.run(["rm", "-rf", path], check=True)
+        shutil.rmtree(path)
         print(f"PostgreSQL uninstalled successfully from {path}.")
       else:
         print(f"Path {path} does not exist.")
@@ -95,6 +119,40 @@ class PostgreManager:
     PostgreManager.uninstall_postgre(path)
     PostgreManager.install_postgre(path)
   
+  def init_database():
+    pg_path = PostgreManager._pg_path()
+    db_path = PostgreManager._db_path()
+
+    if pg_path is None or db_path is None:
+        print("Error: PostgreSQL path or database path is None.")
+        return
+
+    os.chdir(pg_path)
+    print(os.path.join(pg_path, "bin", "pg_ctl"))
+    subprocess.run([os.path.join(pg_path, "bin", "initdb"), "-E", "UTF8", "-U", "postgres", "-D", db_path])
+
+  @staticmethod
+  def fill_database():
+    pg_path = PostgreManager._pg_path()
+    db_path = PostgreManager._db_path()
+    py_path = PostgreManager._py_path()
+    folder = os.path.dirname(__file__)
+
+    subprocess.run([py_path, os.path.join(folder, "scripts", "db_init.py")])
+
+  @staticmethod
+  def remove_database():
+    path = PostgreManager._db_path()
+    print("Uninstalling.")
+    try:
+      if os.path.exists(path):
+        shutil.rmtree(path)
+        print(f"PostgreSQL uninstalled successfully from {path}.")
+      else:
+        print(f"Path {path} does not exist.")
+    except subprocess.CalledProcessError as e:
+      print(f"Error during uninstallation: {e}")
+
   @staticmethod
   def resolve_command(command):
     if len(command) == 0:
@@ -108,6 +166,7 @@ class PostgreManager:
       
     elif len(command) >= 1 and command[0] == "path":
       if len(command) >= 3 and command[1] == "set":
+        path = str.join(command[3:])
         PostgreManager.set(path)
       elif len(command) >= 2 and command[1] == "get":
         print(PostgreManager._pg_path())
@@ -122,6 +181,23 @@ class PostgreManager:
         
     elif len(command) >= 1 and command[0] == "reinstall":
       PostgreManager.reinstall_postgre(command[1] if len(command) >= 2 else None)
+        
+    elif len(command) >= 1 and command[0] == "database":
+      if len(command) >= 2 and command[1] == "init":
+        PostgreManager.init_database()
+      elif len(command) >= 2 and command[1] == "fill":
+        PostgreManager.fill_database()
+      elif len(command) >= 2 and command[1] == "remove":
+        PostgreManager.remove_database()
+      elif len(command) >= 2 and command[1] == "reinstall":
+        PostgreManager.stop()
+        PostgreManager.remove_database()
+        PostgreManager.init_database()
+        PostgreManager.start()
+        PostgreManager.fill_database()
+        PostgreManager.stop()
+      else:
+        print("Usage: database [init|fill")
         
     elif len(command) >= 1 and command[0] == "help":
       print("Commands for postgre")
