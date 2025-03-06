@@ -1,7 +1,9 @@
 ## Objektově relační mapování, Entity framework
 ### Skript na instalaci databáze
 Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
+
 Otevřeme bat soubor script.bat, kde se spustí python script v příkazoví řádce.
+
 Pokud nemáme nainstalovaný postgre, tak zadáme následující příkaz.
 ```
 postgre install 
@@ -13,7 +15,8 @@ postgre path set (cesta do složky postgres)
 Spustíme server.
 ``` 
 postgre start
-``` 
+```
+!Pozor! - pokud máme již vytvořený nějaký postgre server na port 5432, tak nepůjde spustit. To se dá vyřešit smazáním serveru nebo změnou portu.
 ### Operace s databází
 Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation form).
 
