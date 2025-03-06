@@ -51,15 +51,15 @@ Nasměrujeme se do složky projektu a zadáme.:
 ```
 cd C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF
 ```
-Přidáme migrace.
+Nejdřív.:
 ```
-dotnet ef migrations add InitialCreate --project ER_WPF.csproj
+dotnet build
 ```
-Nebo.:
+Vytvoření modelů.
 ```
-dotnet ef migrations add InitialCreate
+dotnet ef dbcontext scaffold "Host=localhost;Database=postgres;Username=postgres;Password=" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -f
 ```
-
+Databáze už by měla být načtená podle modelů.
 ### Aplikační část
 5. Nejaká služba, která nám bude vracet data z databáze array, atd. (to už bude součástí aplikace)
 6. Aplikace s pokémony a možnost vyhledávání, prohlížení pokémonů v aplikaci.
