@@ -166,7 +166,7 @@ class PostgreManager:
       
     elif len(command) >= 1 and command[0] == "path":
       if len(command) >= 3 and command[1] == "set":
-        path = str.join(command[3:])
+        path = str.join(command[2:]) if len(command) > 3 else command[2]
         PostgreManager.set(path)
       elif len(command) >= 2 and command[1] == "get":
         print(PostgreManager._pg_path())
@@ -206,6 +206,10 @@ class PostgreManager:
       print("postgre path set <path> - Get or set the path to PostgreSQL server")
       print("postgre path get - Get or set the path to PostgreSQL server")
       print("postgre install <path> - Install PostgreSQL server")
+      print("postgre database remove - Remove PostgreSQL database")
+      print("postgre install init - Create a new database")
+      print("postgre install fill - Fill tables")
+      print("postgre install reinstall - Quick  reinstall PostgreSQL database")
       print("postgre exit - Exit the program")
     
     elif len(command) >= 1 and command[0] == "exit":

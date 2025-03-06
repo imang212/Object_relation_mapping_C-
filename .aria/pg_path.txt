@@ -1,1 +1,1 @@
-c:\Users\skyre\Documents\Object_relation_mapping_C-\Object_relation_mapping_C-\postgre\pgsql
+C:\Data\School\GUI\Object_relation_mapping_C-\Object_relation_mapping_C-\postgre\pgsql
