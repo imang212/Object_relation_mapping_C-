@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Pokemon List" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="SearchTextBox" Width="200" Height="20" Margin="0,0,0,10" Text="Enter Pokémon name" RenderTransformOrigin="0.497,0.52"/>
-        <Button Content="Search" Width="100" Height="50" Click="SearchButton_Click" RenderTransformOrigin="0.493,0.515"/>
-        <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="True" />
+        <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="True" Margin="44,68,44,25" SelectionChanged="PokemonDataGrid_SelectionChanged" />
+        <Button x:Name="SearchButton" Content="Vyhledat" Margin="475,10,106,390" Click="SearchButton_Click_1"/>
+        <TextBox x:Name="SearchTextBox" TextWrapping="Wrap" Text="Vyhledej pokemona" Margin="205,10,0,390" FontSize="18" HorizontalAlignment="Left" Width="247" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </Window>

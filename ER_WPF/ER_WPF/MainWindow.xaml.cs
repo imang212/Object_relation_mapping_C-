@@ -47,4 +47,24 @@ public partial class MainWindow : Window
 
         PokemonDataGrid.ItemsSource = searchResults;
     }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void PokemonDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void SearchButton_Click_1(object sender, RoutedEventArgs e)
+    {
+
+    }
 }
