@@ -37,7 +37,7 @@ public partial class MainWindow : Window
 
         PokemonDataGrid.ItemsSource = abilities;
     }
-    private void SearchButton_Click(object sender, RoutedEventArgs e)
+    private void SearchButton_Click_1(object sender, RoutedEventArgs e)
     {
         string searchTerm = SearchTextBox.Text;
 
@@ -63,7 +63,110 @@ public partial class MainWindow : Window
 
     }
 
-    private void SearchButton_Click_1(object sender, RoutedEventArgs e)
+    private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged2(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged3(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void TextBox_TextChanged2(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void TextBox_TextChanged3(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged4(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChange5(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged6(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged7(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+    private void ComboBox_SelectionChanged8(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+    private void ComboBox_SelectionChanged9(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged10(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_HP_1(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_HP_2(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_ATTACK_1(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_ATTACK_2(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_DEFENSE_1(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_DEFENSE_2(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_SPATT_1(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_SPATT_2(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_SPDEF_1(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void ComboBox_SelectionChanged_SPDEF_2(object sender, SelectionChangedEventArgs e)
     {
 
     }
