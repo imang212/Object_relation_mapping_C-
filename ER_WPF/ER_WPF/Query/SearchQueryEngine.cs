@@ -12,7 +12,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ER_WPF.Query
 {
-    class QueryEngine
+    class SearchQueryEngine
     {
         public enum LegendaryStatuses
         {
@@ -329,7 +329,7 @@ namespace ER_WPF.Query
         private PokemonDataContext _context;
         private List<Models.pokemon> pokemonResults;
 
-        QueryEngine(PokemonDataContext _context)
+        SearchQueryEngine(PokemonDataContext _context)
         {
             this._context = _context;
             this.pokemonResults = new List<Models.pokemon>();
