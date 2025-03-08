@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\data\\school\\gui\\object_relation_mapping_c-\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\queryengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\queryengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\data\\school\\gui\\object_relation_mapping_c-\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\searchqueryengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\searchqueryengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\data\\school\\gui\\object_relation_mapping_c-\\object_relation_mapping_c-\\er_wpf\\er_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -70,12 +70,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "QueryEngine.cs",
-              "DocumentMoniker": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\QueryEngine.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\Query\\QueryEngine.cs",
-              "ToolTip": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\QueryEngine.cs",
-              "RelativeToolTip": "ER_WPF\\Query\\QueryEngine.cs",
-              "ViewState": "AgIAAM8AAAAAAAAAAAA7wFMBAAAJAAAAAAAAAA==",
+              "Title": "SearchQueryEngine.cs",
+              "DocumentMoniker": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\SearchQueryEngine.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\Query\\SearchQueryEngine.cs",
+              "ToolTip": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\SearchQueryEngine.cs",
+              "RelativeToolTip": "ER_WPF\\Query\\SearchQueryEngine.cs",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAwwFABAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T13:16:31.895Z",
               "EditorCaption": ""
@@ -89,8 +89,7 @@
               "ToolTip": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml",
               "RelativeToolTip": "ER_WPF\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-06T11:43:53.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T11:43:53.899Z"
             },
             {
               "$type": "Document",
@@ -102,8 +101,7 @@
               "RelativeToolTip": "ER_WPF\\MainWindow.xaml.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAtwCcAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T11:16:41.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T11:16:41.956Z"
             },
             {
               "$type": "Document",
@@ -115,8 +113,7 @@
               "RelativeToolTip": "ER_WPF\\Data\\PokemonDataContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T11:12:09.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T11:12:09.805Z"
             },
             {
               "$type": "Document",
@@ -128,8 +125,7 @@
               "RelativeToolTip": "ER_WPF\\Models\\move.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T12:40:46.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T12:40:46.198Z"
             },
             {
               "$type": "Document",
@@ -177,8 +173,7 @@
               "RelativeToolTip": "ER_WPF\\Models\\pokemon_species.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAA1wBIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:10:57.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T13:10:57.235Z"
             },
             {
               "$type": "Document",
@@ -190,8 +185,7 @@
               "RelativeToolTip": "ER_WPF\\Models\\pokemon.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T12:40:52.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T12:40:52.886Z"
             },
             {
               "$type": "Document",
@@ -214,8 +208,7 @@
               "ToolTip": "C:\\Data\\School\\GUI\\Object_relation_mapping_C-\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\App.xaml",
               "RelativeToolTip": "ER_WPF\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-06T11:31:56.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T11:31:56.063Z"
             },
             {
               "$type": "Document",
