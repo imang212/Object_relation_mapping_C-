@@ -1,8 +1,14 @@
-﻿using System;
+﻿using ER_WPF.Data;
+using ER_WPF.Models;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.Swift;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ER_WPF.Query
 {
@@ -320,14 +326,132 @@ namespace ER_WPF.Query
             }
         }
 
-        QueryEngine()
-        {
+        private PokemonDataContext _context;
+        private List<Models.pokemon> pokemonResults;
 
+        QueryEngine(PokemonDataContext _context)
+        {
+            this._context = _context;
+            this.pokemonResults = new List<Models.pokemon>();
+            this.UpdateQuery();
         }
 
         private void UpdateQuery()
         {
+            IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
 
+            //Ability
+            if (this.Ability != null && this.Ability.Length > 0)
+            {
+                pokemonQuery = pokemonQuery.Where(p =>
+                    _context.ability
+                    .Where(a => a.name == this.Ability)
+                    .Any(a => a.id == p.primary_ability || a.id == p.secondary_ability || a.id == p.hidden_ability)
+                );
+            }
+
+            //Move
+            if (this.KnowsMove != null && this.KnowsMove.Length > 0)
+            {
+                pokemonQuery = pokemonQuery.Where(p => _context.pokemon_move
+                    .Any(pm => pm.pokemon == p.id &&
+                         _context.move
+                         .Where(m => m.name == this.KnowsMove)
+                         .Any(m => m.id == pm.move)
+                    )
+                );
+            }
+
+            //Type
+            bool type1exists = this.Type1 != null && this.Type1.Length > 0;
+            bool type2exists = this.Type2 != null && this.Type2.Length > 0;
+            if (type1exists && type2exists && this.Type1 != this.Type2)
+            {
+                pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2);
+            }
+            else if (this.Type1 != null && this.Type1.Length > 0)
+            {
+                pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type1 || p.secondary_type == this.Type1);
+            }
+            else if (this.Type2 != null && this.Type2.Length > 0)
+            {
+                pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type2 || p.secondary_type == this.Type2);
+            }
+
+            //Generation
+            if (this.Generation != null)
+            {
+                pokemonQuery = pokemonQuery.Where(p =>
+                    _context.pokemon_species
+                    .Where(ps => ps.id == p.species)
+                    .Any(ps => ps.generation == this.Generation)
+                );
+            }
+
+            //Legendary Status
+            if (this.LegendaryStatus != null) {
+                bool isLegendary = this.LegendaryStatus == LegendaryStatuses.Legendary;
+                bool isMythical = this.LegendaryStatus == LegendaryStatuses.Mythical;
+                pokemonQuery = pokemonQuery.Where(p =>
+                    _context.pokemon_species
+                    .Where(ps => ps.id == p.species)
+                    .Any(ps => ps.is_legendary == isLegendary && ps.is_mythical == isMythical)
+                );
+            }
+
+            //Apearance - Color
+            if (this.Appearance_Color != null && this.Appearance_Color.Length > 0)
+            {
+                pokemonQuery = pokemonQuery.Where(p =>
+                    _context.pokemon_species
+                    .Where(ps => ps.id == p.species)
+                    .Any(ps => ps.color == this.Appearance_Color)
+                );
+            }
+
+            //Apearance - Shape
+            if (this.Appearance_Shape != null && this.Appearance_Shape.Length > 0)
+            {
+                pokemonQuery = pokemonQuery.Where(p =>
+                    _context.pokemon_species
+                    .Where(ps => ps.id == p.species)
+                    .Any(ps => ps.shape == this.Appearance_Shape)
+                );
+            }
+
+            //Apearance - Height
+            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height >= this.Appearance_Height_Min);
+            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height <= this.Appearance_Height_Max);
+
+            //Apearance - Weight
+            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.weight >= this.Appearance_Weight_Min);
+            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.weight <= this.Appearance_Weight_Max);
+
+            //Apearance - HP
+            if (this.Stat_HP_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_HP_Min);
+            if (this.Stat_HP_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_HP_Min);
+
+            //Apearance - Attack
+            if (this.Stat_Attack_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_Attack_Min);
+            if (this.Stat_Attack_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_Attack_Max);
+
+            //Apearance - Defense
+            if (this.Stat_Defense_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_Defense_Min);
+            if (this.Stat_Defense_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_Defense_Max);
+
+            //Apearance - Special Attack
+            if (this.Stat_SpAtt_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_SpAtt_Min);
+            if (this.Stat_SpAtt_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_SpAtt_Max);
+
+            //Apearance - Special Defense
+            if (this.Stat_SpDef_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_SpDef_Min);
+            if (this.Stat_SpDef_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_SpDef_Max);
+
+            //Apearance - Speed
+            if (this.Stat_Speed_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_Speed_Min);
+            if (this.Stat_Speed_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_Speed_Max);
+
+            this.pokemonResults = pokemonQuery.ToList();
         }
     }
 }
