@@ -41,10 +41,12 @@ Databáze se skládá ze 6 tabulek. Ability, move, pokemon, pokemon_move, pokemo
 ### Operace s databází
 #### Popis ORM
 ![alt text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*vK7NzagpDws_lSJYeKV8Yw.png)
+
 Zde je příklad toho, jak funguje ORM. Mapping logic, který obsahuje entity framework přistupuje k databázi a zároveň i komunikuje s pamětí, kde jsou vytvořeny jednotlivé objekty.
 
 
 ![alt text](https://www.tutorialspoint.com/entity_framework/images/conceptual_model.jpg)
+
 V tomto obrázku je detainější popis toho, co vlastně dělá entity framework a s čím vším komunikuje. Nachází se v něm konceptuální model db a potom ještě podoperace jako jsou query, aktualizace do db nebo zaznamenávání změn v db. Konceptuální model s dalšími operacemi komunikuje s logikou aplikace a logika aplikace pak s uživatelskym rozhraním.
 
 #### Vytvoření projektu ve visual studiu
