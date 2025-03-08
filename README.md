@@ -1,4 +1,4 @@
-## Objektově relační mapování, Entity framework
+![image](https://github.com/user-attachments/assets/d145dc37-47f0-41f3-b267-b19d5cf1391b)## Objektově relační mapování, Entity framework
 ### Skript na instalaci databáze
 Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
 
@@ -17,6 +17,13 @@ Spustíme server.
 ``` 
 postgre start
 ```
+Pokud nebude fungovat postgre start, tak zadejte tento příkaz na přeinstalaci a automatické spuštění db.
+```
+postgre database reinstall
+``` 
+![image](https://github.com/user-attachments/assets/badc3ccf-2e45-41aa-913f-9fac5e0231f4)
+Stáhnou se rovnou databáze a spustí se i server.
+
 V případě můžeme pro výpis možných příkazů.
 ```
 postgre help
@@ -25,7 +32,12 @@ postgre help
 
 Příkazový řádek se nesmí vypínat, jinak se vypne i server.
 
+
+
+
 #### Model databáze.:
+Databáze se skládá ze 6 tabulek. Ability, move, pokemon, pokemon_move, pokemon_species a ability_chain.
+
 ![database_model](https://github.com/user-attachments/assets/1687c886-5546-42ae-9f09-16571a06b1a7)
 
 ### Operace s databází
@@ -39,7 +51,6 @@ Procházet: Přepněte na záložku Browse.
 Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze:
 ```
 Install-Package Microsoft.EntityFrameworkCore
-Install-Package Microsoft.EntityFrameworkCore.Design
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
