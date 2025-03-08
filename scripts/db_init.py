@@ -601,7 +601,7 @@ class PokemonSQLThread(SQLThread):
             sqlalchemy.Column('primary_ability', sqlalchemy.Integer),
             sqlalchemy.Column('secondary_ability', sqlalchemy.Integer),
             sqlalchemy.Column('hidden_ability', sqlalchemy.Integer),
-            sqlalchemy.Column('species', sqlalchemy.Integer),
+            sqlalchemy.Column('species', sqlalchemy.Integer, sqlalchemy.ForeignKey('pokemon_species.id')),
             sqlalchemy.Column('hp', sqlalchemy.Integer),
             sqlalchemy.Column('hp_effort', sqlalchemy.Integer),
             sqlalchemy.Column('attack', sqlalchemy.Integer),
@@ -665,8 +665,8 @@ class PokemonMoveSQLThread(SQLThread):
     def define_table(self, metadata:sqlalchemy.MetaData) -> sqlalchemy.Table:
         return sqlalchemy.Table(
             'pokemon_move', metadata,
-            sqlalchemy.Column('pokemon', sqlalchemy.Integer),
-            sqlalchemy.Column('move', sqlalchemy.Integer),
+            sqlalchemy.Column('pokemon', sqlalchemy.Integer, sqlalchemy.ForeignKey('pokemon.id')),
+            sqlalchemy.Column('move', sqlalchemy.Integer, sqlalchemy.ForeignKey('move.id')),
             sqlalchemy.Column('level_learned_at', sqlalchemy.Integer),
             sqlalchemy.Column('learn_method', sqlalchemy.Text)
         )
@@ -679,8 +679,8 @@ class EvolutionChainSQLThread(SQLThread):
         return sqlalchemy.Table(
             'evolution_chain', metadata,
             sqlalchemy.Column('id', sqlalchemy.Integer, primary_key=True),
-            sqlalchemy.Column('"from"', sqlalchemy.Integer),
-            sqlalchemy.Column('"to"', sqlalchemy.Integer),
+            sqlalchemy.Column('"from"', sqlalchemy.Integer, sqlalchemy.ForeignKey('pokemon.id')),
+            sqlalchemy.Column('"to"', sqlalchemy.Integer, sqlalchemy.ForeignKey('pokemon.id')),
             sqlalchemy.Column('gender', sqlalchemy.Integer),
             sqlalchemy.Column('min_beauty', sqlalchemy.Integer),
             sqlalchemy.Column('min_happiness', sqlalchemy.Integer),
