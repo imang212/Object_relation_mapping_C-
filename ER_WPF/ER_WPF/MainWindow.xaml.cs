@@ -37,9 +37,9 @@ public partial class MainWindow : Window
 
         PokemonDataGrid.ItemsSource = abilities;
     }
-    private void SearchButton_Click_1(object sender, RoutedEventArgs e)
+    private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
-        string searchTerm = SearchTextBox.Text;
+        string searchTerm = NameTextBox.Text;
 
         var searchResults = _context.pokemon
             .Where(p => p.name.Contains(searchTerm))
@@ -58,115 +58,125 @@ public partial class MainWindow : Window
 
     }
 
-    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    private void Name_TextChanged(object sender, TextChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void Type1_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged2(object sender, SelectionChangedEventArgs e)
+    private void Type2_SelectionChanged2(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged3(object sender, SelectionChangedEventArgs e)
+    private void Generation_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void TextBox_TextChanged2(object sender, TextChangedEventArgs e)
+    private void KnowsMove_TextChanged(object sender, TextChangedEventArgs e)
     {
 
     }
 
-    private void TextBox_TextChanged3(object sender, TextChangedEventArgs e)
+    private void Ability_TextChanged(object sender, TextChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged4(object sender, SelectionChangedEventArgs e)
+    private void LegendaryStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChange5(object sender, SelectionChangedEventArgs e)
+    private void Appearance_Color_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged6(object sender, SelectionChangedEventArgs e)
+    private void Appearance_Shape_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged7(object sender, SelectionChangedEventArgs e)
+    private void Appearance_Height_Min_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
-    private void ComboBox_SelectionChanged8(object sender, SelectionChangedEventArgs e)
+    private void Appearance_Height_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
-    private void ComboBox_SelectionChanged9(object sender, SelectionChangedEventArgs e)
-    {
-
-    }
-
-    private void ComboBox_SelectionChanged10(object sender, SelectionChangedEventArgs e)
+    private void Appearance_Weight_Min_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_HP_1(object sender, SelectionChangedEventArgs e)
+    private void Appearance_Weight_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_HP_2(object sender, SelectionChangedEventArgs e)
+    private void Stats_HP_Min_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_ATTACK_1(object sender, SelectionChangedEventArgs e)
+    private void Stats_HP_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_ATTACK_2(object sender, SelectionChangedEventArgs e)
+    private void Stats_Attack_Min_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_DEFENSE_1(object sender, SelectionChangedEventArgs e)
+    private void Stats_Attack_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_DEFENSE_2(object sender, SelectionChangedEventArgs e)
+    private void Stats_Defense_Min_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_SPATT_1(object sender, SelectionChangedEventArgs e)
+    private void Stats_Defense_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_SPATT_2(object sender, SelectionChangedEventArgs e)
+    private void Stats_SpAtt_Min_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_SPDEF_1(object sender, SelectionChangedEventArgs e)
+    private void Stats_SpAtt_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }
 
-    private void ComboBox_SelectionChanged_SPDEF_2(object sender, SelectionChangedEventArgs e)
+    private void Stats_SpDef_Min_TextChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Stats_SpDef_Max_TextChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Stats_Speed_Min_TextChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Stats_Speed_Max_TextChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }

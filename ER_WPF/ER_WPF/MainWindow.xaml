@@ -6,74 +6,83 @@
     <Grid>
         <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="True" Margin="22,20,0,0" SelectionChanged="PokemonDataGrid_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Height="630" Width="720" />
         <StackPanel Grid.Column="1" Margin="720,0,0,0">
-            <Button x:Name="SearchButton1" Content="SEARCH" Margin="40,20,0,0" Click="SearchButton_Click_1" FontWeight="Bold" IsCancel="True" Width="197" Height="30" HorizontalAlignment="Left"/>
+            <Button x:Name="SearchButton" Content="SEARCH" Margin="40,20,0,0" Click="SearchButton_Click" FontWeight="Bold" IsCancel="True" Width="197" Height="30" HorizontalAlignment="Left"/>
             <Label Content="NAME:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-            <TextBox x:Name="SearchTextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" Height="25" TextChanged="TextBox_TextChanged"/>
+            <TextBox x:Name="NameTextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" Height="25" TextChanged="Name_TextChanged"/>
             <Label Content="TYPE:" HorizontalAlignment="Left" Width="70" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <Grid Margin="0,0,0,10">
-                <ComboBox HorizontalAlignment="Left" Margin="45,0,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="ComboBox_SelectionChanged"/>
-                <ComboBox  Margin="158,0,0,0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged2"/>
+                <ComboBox HorizontalAlignment="Left" Margin="45,0,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="Type1_SelectionChanged"/>
+                <ComboBox  Margin="158,0,0,0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="Type2_SelectionChanged"/>
             </Grid>
             <Grid Margin="0,-2,0,0">
                 <Label Grid.Column="0" Content="GENERATION:" HorizontalAlignment="Left" Margin="40,-4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="158,0,0,4" Width="80" SelectionChanged="ComboBox_SelectionChanged3" RenderTransformOrigin="0.309,0.685"/>
+                <ComboBox HorizontalAlignment="Left" Margin="158,0,0,4" Width="80" SelectionChanged="Generation_SelectionChanged" RenderTransformOrigin="0.309,0.685"/>
             </Grid>
             <Label Content="KNOWS MOVE:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-            <TextBox x:Name="SearchTextBox2" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="TextBox_TextChanged2" Height="20"/>
+            <TextBox x:Name="KnowsMove_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="KnowsMove_TextChanged" Height="20"/>
             <Label Content="ABILITY:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-            <TextBox x:Name="SearchTextBox3" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="TextBox_TextChanged3" Height="21"/>
+            <TextBox x:Name="Ability_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="Ability_TextChanged" Height="21"/>
             <Label Content="LEGENDARY:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118" RenderTransformOrigin="0.451,0.784"/>
-            <ComboBox HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="ComboBox_SelectionChanged4"/>
+            <ComboBox HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="LegendaryStatus_SelectionChanged"/>
             <Label Content="APPEARANCE:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
             <Grid Margin="0,0,0,0">
                 <Label Content="COLOR:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.474,-1.683"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="ComboBox_SelectionChange5"/>
+                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Color_SelectionChanged"/>
             </Grid>
             <Grid Margin="0,0,0,0">
                 <Label Content="SHAPE:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="ComboBox_SelectionChanged6"/>
+                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Shape_SelectionChanged"/>
             </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="HEIGHT:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged7"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" VerticalAlignment="Bottom" Width="50" SelectionChanged="ComboBox_SelectionChanged8"/>
-            </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="WEIGHT:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged9"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" Width="50" SelectionChanged="ComboBox_SelectionChanged10"/>
-            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="HEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Height_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Height_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-3,0,0">
+                <Label Content="WEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Weight_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Weight_Max_TextChanged"/>
+            </StackPanel>
             <Label Content="STATS:" HorizontalAlignment="Left" Margin="40,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
-            <Grid Margin="0,-3,0,0">
-                <Label Content="HP:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged_HP_1"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" VerticalAlignment="Bottom" Width="50" SelectionChanged="ComboBox_SelectionChanged_HP_2"/>
-            </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="ATTACK:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged_ATTACK_1"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" Width="50" SelectionChanged="ComboBox_SelectionChanged_ATTACK_2"/>
-            </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="DEFENSE:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged_DEFENSE_1"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" VerticalAlignment="Bottom" Width="50" SelectionChanged="ComboBox_SelectionChanged_DEFENSE_2"/>
-            </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="SP. ATT.:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged_SPATT_1"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" Width="50" SelectionChanged="ComboBox_SelectionChanged_SPATT_2"/>
-            </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="SP. DEF.:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged_SPDEF_1"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" VerticalAlignment="Bottom" Width="50" SelectionChanged="ComboBox_SelectionChanged_SPDEF_2"/>
-            </Grid>
-            <Grid Margin="0,0,0,0">
-                <Label Content="SPEED:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="ComboBox_SelectionChanged9"/>
-                <ComboBox HorizontalAlignment="Left" Margin="186,0,0,4" Width="50" SelectionChanged="ComboBox_SelectionChanged10" Height="22" VerticalAlignment="Bottom"/>
-            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="HP" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_HP_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_HP_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="ATTACK:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Attack_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Attack_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="DEFENSE:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Defense_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Defense_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="SP.ATT.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpAtt_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpAtt_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="SP.DEF.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpDef_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpDef_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="SPEED:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Speed_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Speed_Max_TextChanged"/>
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Window>
