@@ -5,25 +5,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace ER_WPF.Query
 {
-    class PokemonFetchEngine
+    class PokemonFullDetails
     {
         private Models.pokemon pokemon;
         private List<Models.move> moves;
         private Models.pokemon_species species;
         private EvolutionTreeNode evolutionTree;
         private List<Models.ability> abilities;
+        private string spriteUrl;
+        private BitmapImage sprite;
 
         Models.pokemon Pokemon { get => this.pokemon; }
         public List<Models.move> Moves { get => this.moves; }
         public Models.pokemon_species Species { get => this.species; }
         public EvolutionTreeNode EvolutionTree { get => this.evolutionTree; }
         public List<Models.ability> Abilities { get => this.abilities; }
+        public BitmapImage Sprite { get => sprite; }
 
         private PokemonDataContext _context;
-        private PokemonFetchEngine(PokemonDataContext _context) {
+        private PokemonFullDetails(PokemonDataContext _context) {
             this._context = _context;
         }
 
@@ -47,6 +51,20 @@ namespace ER_WPF.Query
                 a.id == this.Pokemon.secondary_ability ||
                 a.id == this.Pokemon.hidden_ability
             ).ToList();
+
+            this.spriteUrl = spriteUrl;
+            this.sprite = loadImage(this.spriteUrl);
+        }
+
+        private BitmapImage loadImage(string url)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri(url);
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.EndInit();
+
+            return bitmapImage;
         }
 
         public class EvolutionTreeNode
