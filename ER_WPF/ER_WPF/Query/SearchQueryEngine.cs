@@ -326,6 +326,13 @@ namespace ER_WPF.Query
             }
         }
 
+        public List<Models.pokemon> Results{
+            get
+            {
+                return this.pokemonResults;
+            }
+        }
+
         private PokemonDataContext _context;
         private List<Models.pokemon> pokemonResults;
 
