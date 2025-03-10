@@ -68,7 +68,7 @@ public partial class MainWindow : Window
 
     }
 
-    private void Type2_SelectionChanged2(object sender, SelectionChangedEventArgs e)
+    private void Type2_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
 
     }

@@ -374,7 +374,7 @@ namespace ER_WPF.Query
             bool type2exists = this.Type2 != null && this.Type2.Length > 0;
             if (type1exists && type2exists && this.Type1 != this.Type2)
             {
-                pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2);
+                pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2));
             }
             else if (this.Type1 != null && this.Type1.Length > 0)
             {
