@@ -27,13 +27,14 @@ namespace ER_WPF.Query
         public BitmapImage Sprite { get => sprite; }
 
         private PokemonDataContext _context;
-        private PokemonFullDetails(PokemonDataContext _context) {
+        public PokemonFullDetails(PokemonDataContext _context, int? id) {
             this._context = _context;
+            Update(id);
         }
 
-        void Update(int id)
+        void Update(int? id)
         {
-            this.pokemon = this._context.pokemon.FirstOrDefault(p => p.id <= id);
+            this.pokemon = this._context.pokemon.FirstOrDefault(p => p.id == id);
             if (this.pokemon == null)
             {
                 this.moves = null;

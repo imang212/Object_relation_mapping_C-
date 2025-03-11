@@ -4,7 +4,20 @@
         Title="Pokemon List" Height="720" Width="1000"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="True" Margin="22,20,0,0" SelectionChanged="PokemonDataGrid_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Height="630" Width="720" />
+        <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="False" Margin="22,20,0,0" SelectionChanged="PokemonDataGrid_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Height="630" Width="720" IsReadOnly="True" HeadersVisibility="None" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="{Binding Sprite}" Width="100" Height="100" Margin="5"/>
+                                <TextBlock Text="{Binding name}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel Grid.Column="1" Margin="720,0,0,0">
             <Button x:Name="SearchButton" Content="SEARCH" Margin="40,20,0,0" Click="SearchButton_Click" FontWeight="Bold" IsCancel="True" Width="197" Height="30" HorizontalAlignment="Left"/>
             <Label Content="NAME:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
@@ -35,54 +48,53 @@
             </Grid>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="HEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Height_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Height_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput2" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-3,0,0">
                 <Label Content="WEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Weight_Min_TextChanged"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput3" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Max_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Weight_Max_TextChanged"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput4" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Max_TextChanged"/>
             </StackPanel>
             <Label Content="STATS:" HorizontalAlignment="Left" Margin="40,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="HP" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_HP_Min_TextChanged"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput5" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_HP_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_HP_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput6" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_HP_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="ATTACK:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Attack_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput7" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Attack_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Attack_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput8" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Attack_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="DEFENSE:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Defense_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput9" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Defense_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Defense_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput10" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Defense_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="SP.ATT.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpAtt_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput11" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpAtt_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpAtt_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput12" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpAtt_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="SP.DEF.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpDef_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput13" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpDef_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_SpDef_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput14" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpDef_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="SPEED:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Speed_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput15" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Speed_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox PreviewTextInput="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" SelectionChanged="Appearance_Speed_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput16" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Speed_Max_TextChanged"/>
             </StackPanel>
-            
         </StackPanel>
     </Grid>
 </Window>

@@ -333,6 +333,7 @@ namespace ER_WPF.Query
             }
         }
 
+
         private PokemonDataContext _context;
         private List<Models.pokemon> pokemonResults;
 
@@ -342,7 +343,6 @@ namespace ER_WPF.Query
             this.pokemonResults = new List<Models.pokemon>();
             this.UpdateQuery();
         }
-
         private void UpdateQuery()
         {
             IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
@@ -439,24 +439,24 @@ namespace ER_WPF.Query
             if (this.Stat_HP_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_HP_Min);
 
             //Apearance - Attack
-            if (this.Stat_Attack_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_Attack_Min);
-            if (this.Stat_Attack_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_Attack_Max);
+            if (this.Stat_Attack_Min != null) pokemonQuery = pokemonQuery.Where(p => p.attack >= this.Stat_Attack_Min);
+            if (this.Stat_Attack_Max != null) pokemonQuery = pokemonQuery.Where(p => p.attack <= this.Stat_Attack_Max);
 
             //Apearance - Defense
-            if (this.Stat_Defense_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_Defense_Min);
-            if (this.Stat_Defense_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_Defense_Max);
+            if (this.Stat_Defense_Min != null) pokemonQuery = pokemonQuery.Where(p => p.defense >= this.Stat_Defense_Min);
+            if (this.Stat_Defense_Max != null) pokemonQuery = pokemonQuery.Where(p => p.defense <= this.Stat_Defense_Max);
 
             //Apearance - Special Attack
-            if (this.Stat_SpAtt_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_SpAtt_Min);
-            if (this.Stat_SpAtt_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_SpAtt_Max);
+            if (this.Stat_SpAtt_Min != null) pokemonQuery = pokemonQuery.Where(p => p.special_attack >= this.Stat_SpAtt_Min);
+            if (this.Stat_SpAtt_Max != null) pokemonQuery = pokemonQuery.Where(p => p.special_attack <= this.Stat_SpAtt_Max);
 
             //Apearance - Special Defense
-            if (this.Stat_SpDef_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_SpDef_Min);
-            if (this.Stat_SpDef_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_SpDef_Max);
+            if (this.Stat_SpDef_Min != null) pokemonQuery = pokemonQuery.Where(p => p.special_defense >= this.Stat_SpDef_Min);
+            if (this.Stat_SpDef_Max != null) pokemonQuery = pokemonQuery.Where(p => p.special_defense <= this.Stat_SpDef_Max);
 
             //Apearance - Speed
-            if (this.Stat_Speed_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_Speed_Min);
-            if (this.Stat_Speed_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_Speed_Max);
+            if (this.Stat_Speed_Min != null) pokemonQuery = pokemonQuery.Where(p => p.speed >= this.Stat_Speed_Min);
+            if (this.Stat_Speed_Max != null) pokemonQuery = pokemonQuery.Where(p => p.speed <= this.Stat_Speed_Max);
 
             this.pokemonResults = pokemonQuery.ToList();
         }
