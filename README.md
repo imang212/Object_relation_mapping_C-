@@ -7,9 +7,9 @@
 - Python 3.11+ (pro skript instalace databáze)
   
 ### Skript na instalaci databáze
-Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
+Script používající ORM v pythonu pro vytvoření databáze PostgreSQL.
 
-1. Spustíme instalační skript databáze Pokémonů pomocí script.bat, kde se spustí python script v příkazoví řádce pro inicializaci, vytvoření, instalaci a špustění databáze.
+1. Spustíme instalační skript databáze Pokémonů pomocí script.bat, kde se spustí python script v příkazoví řádce pro inicializaci, vytvoření, instalaci a špustění databáze. 
 ![image](https://github.com/user-attachments/assets/08bcaf06-604c-4c96-a7a3-9b784b91ab85)
 
 2. Pokud není PostgreSQL nainstalováno, tak použijte následující příkaz.
@@ -24,6 +24,8 @@ postgre path set <cesta k postgre>
 ``` 
 postgre start
 ```
+![image](https://github.com/user-attachments/assets/f097fa33-2c87-4ace-87f1-c8ce78e50d34)
+
 4. Pokud nastanou problémy u postgre start, zkuste přeinstalaci.
 ```
 postgre database reinstall
