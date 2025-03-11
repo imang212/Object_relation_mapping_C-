@@ -16,6 +16,8 @@ Script používající ORM v pythonu pro vytvoření databáze PostgreSQL.
 ```
 postgre install 
 ```
+![image](https://github.com/user-attachments/assets/8e8c917b-a4b3-4a4e-be3b-77618d5b2ff9)
+
 Nebo pokud máme nainstalovanou verzi postgresu 17.4, nastavte cestu k existující instalaci.
 ```
 postgre path set <cesta k postgre> 
