@@ -1,24 +1,30 @@
 ## Objektově relační mapování, Entity framework
 ![image](https://github.com/user-attachments/assets/d145dc37-47f0-41f3-b267-b19d5cf1391b)
+### Požadavky
+- windows OS s nainstalovaným PostgreSQL 17.4
+- Visual Studio s podporou .NET
+- .NET 9.0
+- Python 3.11+ (pro skript instalace databáze)
+  
 ### Skript na instalaci databáze
 Skript na instalaci a načtení databáze pokémonů. - Python, operace v cmd
 
-Otevřeme bat soubor script.bat, kde se spustí samostatně vytvořený python script v příkazoví řádce.
+1. Spustíme instalační skript databáze Pokémonů pomocí script.bat, kde se spustí python script v příkazoví řádce pro inicializaci, vytvoření, instalaci a špustění databáze.
 ![image](https://github.com/user-attachments/assets/08bcaf06-604c-4c96-a7a3-9b784b91ab85)
 
-Pokud nemáme nainstalovaný postgre, tak zadáme následující příkaz.
+2. Pokud není PostgreSQL nainstalováno, tak použijte následující příkaz.
 ```
 postgre install 
 ```
-Nebo pokud máme nainstalovanou verzi postgresu 17.4, tak stačí, když nastavíme jenom cestu.
+Nebo pokud máme nainstalovanou verzi postgresu 17.4, nastavte cestu k existující instalaci.
 ```
-postgre path set (cesta do složky postgres) 
+postgre path set <cesta k postgre> 
 ``` 
-Spustíme server.
+3. Spusťte databázový server.
 ``` 
 postgre start
 ```
-Pokud nebude fungovat postgre start, tak zadejte tento příkaz na přeinstalaci a automatické spuštění db.
+4. Pokud nastanou problémy u postgre start, zkuste přeinstalaci.
 ```
 postgre database reinstall
 ``` 
@@ -29,8 +35,7 @@ V případě můžeme pro výpis možných příkazů.
 ```
 postgre help
 ```
-!Pozor! - pokud máme již vytvořený nějaký postgre server na port 5432, tak nepůjde spustit. To se dá vyřešit smazáním serveru nebo změnou portu.
-
+!Pozor! - Pokud již běží jiný PostgreSQL server na portu 5432, tak nepůjde spustit. Je třeba změnit port nebo smazat server.
 Příkazový řádek se nesmí vypínat, jinak se vypne i server.
 
 #### Model databáze.:
@@ -50,42 +55,55 @@ Zde je příklad toho, jak funguje ORM. Mapping logic, který obsahuje entity fr
 V tomto obrázku je detainější popis toho, co vlastně dělá entity framework a s čím vším komunikuje. Nachází se v něm konceptuální model db a potom ještě podoperace jako jsou query, aktualizace do db nebo zaznamenávání změn v db. Konceptuální model s dalšími operacemi komunikuje s logikou aplikace a logika aplikace pak s uživatelskym rozhraním.
 
 #### Vytvoření projektu ve visual studiu
-Nejdřív si vytvoříme ve visual studiu projekt typu WPF (window presentation form).
-
-Otevřeme NuGet Package Manager: Klikněte pravým tlačítkem na projekt v Solution Exploreru a vyberte Manage NuGet Packages.
-Procházet: Přepněte na záložku Browse.
-
-Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze:
-Nasměrujeme se do složky projektu a zadáme.:
-```
-cd C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF
-```
-Nejdřív.:
+1. Vytvořte nový WPF projekt (Windows Presentation Foundation) ve visual studiu, který bude fungovat pomocí dotnet 9.0.
+2. Nainstalujte potřebné balíčky
+Pomocí dotnet konzole.:
 ```
 Install-Package Microsoft.EntityFrameworkCore
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 ```
-Potom.:
-```
-dotnet build
-```
+Otevřeme NuGet Package Manager: 
 
-1. Soubor/y, kde budou udělané modely tříd s názvy entit té databáze.. (Vytvoření modelové třídy)
+Klikněte pravým tlačítkem na projekt v Solution Exploreru a vyberte Manage NuGet Packages.
+Procházet: Přepněte na záložku Browse.
+Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze:
 
-Pro vytvoření modelů modelů v dotnet konzoli můžem zadat.:
+3. Vytvoření modelových tříd.:
+Nasměrujeme se do složky projektu.
+```
+cd C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF
+```
+Vytvoříme modelové třídy podle databáze.:
 ```
 dotnet ef dbcontext scaffold "Host=localhost;Database=postgres;Username=postgres;Password=" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -f
 ```
 Databáze už by měla být načtená podle modelů.
 
-2. Připojení k serveru DBMS, jakoby context třída, která dědí DbContext a je tam set těch dat z databáze. (nazev_sereveru=localhost,nazev_databaze=postgre,uzivatel=postgre,heslo="")
+Potom.:
+```
+dotnet build
+```
+4. Připojení k databázi
+ 
+Vytvořte kontextovou třídu PokemonDataKontext.cs, která se stará o komunikaci s databází.
 
-3. Vytvoření query souboru, kde se budou dělat CRUD operace. Insert, Update, Delete, User, Query - C#
+5. Vytvoření query souboru. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#. 
 
-Migrace se zde nemusí uskutečňovat, jelikož databáze už je předvytvořená pomocí python scriptu.
+Migrace se zde nemusí uskutečňovat, jelikož databáze už je předvytvořená pomocí python scriptu. Například pokud změním nebo vytvořím modely tříd, tak se vytvoří nový soubor s SQL změnami a vytvoří tabulky v db, které odpovídají určitým modelům tříd. Zmiňuji to, protože je to také běžná součást EF.
+
+6. Po úspěšném sestavení (dotnet build)
+```
+dotnet run
+```
 
 ### Aplikační část
-5. Nejaká služba, která nám bude vracet data z databáze array, atd. (to už bude součástí aplikace)
-6. Aplikace s pokémony a možnost vyhledávání, prohlížení pokémonů v aplikaci.
+Nejaká služba, která nám bude vracet data z databáze array, atd. 
+- Najděte Pokémona podle ID a vypište jeho jméno do konzole.
+- Upravte existujícího Pokémona a změnu uložte do databáze.
+- Odstraňte Pokémona z databáze a zobrazte potvrzení o odstranění.
+
+Aplikace s pokémony a možnost vyhledávání, prohlížení pokémonů v aplikaci.
+Úkoly:
+- Najděte Pokémona podle ID a vypište jeho jméno v aplikaci.
