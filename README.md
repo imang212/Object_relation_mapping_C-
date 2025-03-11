@@ -82,14 +82,33 @@ Vytvoříme modelové třídy podle databáze.:
 dotnet ef dbcontext scaffold "Host=localhost;Database=postgres;Username=postgres;Password=" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -f
 ```
 Databáze už by měla být načtená podle modelů.
+Modely se mohou k existujícím tabulkám v vytvořit ručně, jé nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db. 
 
-Potom.:
-```
-dotnet build
-```
 4. Připojení k databázi
  
 Vytvořte kontextovou třídu PokemonDataKontext.cs, která se stará o komunikaci s databází.
+```C#
+using Microsoft.EntityFrameworkCore;
+using ER_WPF.Models;
+
+namespace ER_WPF.Data
+{
+    class PokemonDataContext : DbContext
+    {
+        public DbSet<ability> ability { get; set; }
+        public DbSet<move> move { get; set; }
+        public DbSet<pokemon> pokemon { get; set; }
+        public DbSet<pokemon_species> pokemon_species { get; set; }
+        public DbSet<pokemon_move> pokemon_move { get; set; }
+        public DbSet<evolution_chain> evolution_chain { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=");
+        }
+    }
+}
+
+```
 
 5. Vytvoření query souboru. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#. 
 
@@ -97,6 +116,7 @@ Migrace se zde nemusí uskutečňovat, jelikož databáze už je předvytvořen�
 
 6. Po úspěšném sestavení (dotnet build)
 ```
+dotnet build
 dotnet run
 ```
 
