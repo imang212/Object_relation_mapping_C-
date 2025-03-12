@@ -77,7 +77,8 @@ Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze
 
 3. Vytvoření modelových tříd.:
 Databáze už by měla být načtená podle modelů.
-Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db. 
+Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db.
+
 ability.cs
 ```C#
 using System.ComponentModel.DataAnnotations;
@@ -266,7 +267,9 @@ namespace ER_WPF.Models
 ```
 4. Připojení k databázi
  
-V projektu vytvořte novou složku Data a v ní vytvořte kontextovou třídu PokemonDataKontext.cs, která se stará o komunikaci s databází.
+V projektu vytvořte novou složku Data a v ní vytvořte kontextovou třídu PokemonDataContext.cs, která se stará o komunikaci s databází.
+
+PokemonDataContext.cs
 ```C#
 using Microsoft.EntityFrameworkCore;
 using ER_WPF.Models;
@@ -290,8 +293,9 @@ namespace ER_WPF.Data
 ```
 
 5. Vytvořte složku s názvem query a v ní query soubor. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#.
-```C#
+
 PokemonBriefDetails.cs
+```C#
 using ER_WPF.Data;
 using ER_WPF.Models;
 using System;
@@ -343,8 +347,9 @@ namespace ER_WPF.Query
     }
 }
 ```
-```C#
+
 PokemonFullDetails.cs
+```C#
 using ER_WPF.Data;
 using ER_WPF.Models;
 using System;
