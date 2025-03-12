@@ -882,133 +882,133 @@ public partial class MainWindow : Window
     
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void PokemonDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Name_TextChanged(object sender, TextChangedEventArgs e)
     {
     
-        //dodělat
+        //complete
     }
 
     private void Type1_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Type2_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Generation_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void KnowsMove_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Ability_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void LegendaryStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Color_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Shape_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Height_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Height_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_HP_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_HP_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Attack_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Attack_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Defense_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Defense_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_SpAtt_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_SpAtt_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_SpDef_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_SpDef_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Speed_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 
     private void Appearance_Speed_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-        //dodělat
+        //complete
     }
 }
 ```
