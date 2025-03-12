@@ -46,29 +46,68 @@ Příkazový řádek se nesmí vypínat, jinak se vypne i server.
 #### Vytvoření cizích klíčů v db (foreign keys)
 Připojte se k PostgreSQL databázi a spusťte následující SQL příkazy:
 ```SQL
+-- pokemon table
 ALTER TABLE pokemon
 ADD CONSTRAINT fk_pokemon_species
 FOREIGN KEY (species) REFERENCES pokemon_species(id);
 
+ALTER TABLE pokemon
+ADD CONSTRAINT fk_pokemon_primary_ability
+FOREIGN KEY (primary_ability) REFERENCES ability(id) NOT VALID;
+
+ALTER TABLE pokemon
+ADD CONSTRAINT fk_pokemon_secondary_ability
+FOREIGN KEY (secondary_ability) REFERENCES ability(id) NOT VALID;
+
+ALTER TABLE pokemon
+ADD CONSTRAINT fk_pokemon_hidden_ability
+FOREIGN KEY (hidden_ability) REFERENCES ability(id) NOT VALID;
+
+-- pokemon_move table
 ALTER TABLE pokemon_move
 ADD CONSTRAINT fk_pokemon_move_pokemon
 FOREIGN KEY (pokemon) REFERENCES pokemon(id);
+
 ALTER TABLE pokemon_move
 ADD CONSTRAINT fk_pokemon_move_move
 FOREIGN KEY (move) REFERENCES move(id) NOT VALID;
 
+-- evolution_chain table
 ALTER TABLE evolution_chain
 ADD CONSTRAINT fk_evolution_chain_from
 FOREIGN KEY ("""from""") REFERENCES pokemon(id);
+
 ALTER TABLE evolution_chain
 ADD CONSTRAINT fk_evolution_chain_to
 FOREIGN KEY ("""to""") REFERENCES pokemon(id);
+
+ALTER TABLE evolution_chain 
+ALTER COLUMN trade_species TYPE INTEGER USING trade_species::INTEGER;
+
+ALTER TABLE evolution_chain
+ADD CONSTRAINT fk_evolution_chain_trade_species
+FOREIGN KEY (trade_species) REFERENCES pokemon(id) NOT VALID;
+
+ALTER TABLE evolution_chain 
+ALTER COLUMN party_species TYPE INTEGER USING party_species::INTEGER;
+
+ALTER TABLE evolution_chain
+ADD CONSTRAINT fk_evolution_chain_party_species
+FOREIGN KEY (party_species) REFERENCES pokemon(id) NOT VALID;
+
+ALTER TABLE evolution_chain 
+ALTER COLUMN known_move TYPE INTEGER USING known_move::INTEGER;
+
+ALTER TABLE evolution_chain
+ADD CONSTRAINT fk_evolution_chain_known_move
+FOREIGN KEY (known_move) REFERENCES move(id) NOT VALID;
+
 ```
 
 #### Model databáze.:
 
-![postgres - public](https://github.com/user-attachments/assets/60535e6a-8e72-4da7-b169-7c0d266470b1)
-Databáze se skládá ze 6 tabulek. Ability, move, pokemon, pokemon_move, pokemon_species a ability_chain.
+![postgres - public](https://github.com/user-attachments/assets/5e480fbb-a9b4-448a-a6de-60d3647827e9)
+Databáze se skládá ze 6 tabulek: Ability, move, pokemon, pokemon_move, pokemon_species a ability_chain. Obsahuje 11 relací mezi tabulkami.
 
 ### Operace s databází
 #### Popis ORM
