@@ -291,6 +291,8 @@ namespace ER_WPF.Data
     }
 }
 ```
+Migrace se zde nemusí uskutečňovat, jelikož databáze už je předvytvořená pomocí python scriptu. Například pokud změním nebo vytvořím modely tříd, tak se vytvoří nový soubor s SQL změnami a vytvoří tabulky v db, které odpovídají určitým modelům tříd. Zmiňuji to, protože je to také běžná součást EF.
+
 
 5. Vytvořte složku s názvem Query a v ní query soubor. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#.
 
@@ -450,22 +452,140 @@ namespace ER_WPF.Query
 }
 ```
 
-Úkol: Vytvořte si soubor SearchQueryEngine.cs, který bude sloužit pro vyhledávání pokémonů, různých dat a statistik u pokémonů.
+Úkol: 
+Vytvořte si soubor SearchQueryEngine.cs, který bude sloužit pro filtrování pokémonů na základě různých vlastností. Používá Entity Framework k provádění dotazů na databázi pokémonů.
+
+- Bude obsahovat parametry pro vyhledávání Pokémonů – název, typy, schopnosti, statistiky (HP, útok, obrana...), generaci, legendární status, vzhled (barva, tvar, výška, váha) a pohyby.
+
 Řetězce - name, type1, type2, knowsmove, ability, appearance_color, appearance_shape;
+
 Integery - generation, appearance_height_min, appearance_height_max, appearance_weight_min, appearance_weight_max;
+
 Integery ukazující max a min statistiky - _stat_hp_min, _stat_attack_min, _stat_defense_min, _stat_spatt_min, _stat_spdef_min, _stat_speed_min, _stat_hp_max, _stat_attack_max, _stat_defense_max, _stat_spatt_max, _stat_spdef_max, _stat_speed_max;
+
 Legendary status -  LegendaryStatuses _legendarystatus; V tom budou možnosti (None, Legendary a Mythical)
 
- 
-Migrace se zde nemusí uskutečňovat, jelikož databáze už je předvytvořená pomocí python scriptu. Například pokud změním nebo vytvořím modely tříd, tak se vytvoří nový soubor s SQL změnami a vytvoří tabulky v db, které odpovídají určitým modelům tříd. Zmiňuji to, protože je to také běžná součást EF.
+- Každá změna parametru spustí metodu UpdateQuery(), která aktualizuje výsledky vyhledávání.
 
+- Používá IQueryable<T> k efektivnímu filtrování – dotazy se staví dynamicky podle zadaných filtrů.
+
+- Po každé změně se aktualizuje pokemonResults – obsahuje seznam Pokémonů splňujících podmínky.
+
+SearchQueryEngine.cs
+```C#
+using Vyhledavac_pokemonu.Data;
+
+namespace ER_WPF.Query
+{
+    class SearchQueryEngine
+    {
+        public enum LegendaryStatuses
+        {
+            None, Legendary, Mythical
+        }
+        private string? _name, _type1, _type2, _knowsmove, _ability, _appearance_color, _appearance_shape;
+        private int? _generation, _appearance_height_min, _appearance_height_max, _appearance_weight_min, _appearance_weight_max;
+        private int? _stat_hp_min, _stat_attack_min, _stat_defense_min, _stat_spatt_min, _stat_spdef_min, _stat_speed_min;
+        private int? _stat_hp_max, _stat_attack_max, _stat_defense_max, _stat_spatt_max, _stat_spdef_max, _stat_speed_max;
+        private LegendaryStatuses? _legendarystatus;
+
+        private PokemonDataContext _context;
+        private List<Models.pokemon> pokemonResults;
+
+        public SearchQueryEngine(PokemonDataContext _context)
+        {
+            this._context = _context ?? throw new ArgumentNullException(nameof(_context));
+            this.pokemonResults = new List<Models.pokemon>();
+            this.UpdateQuery();
+        }
+        public List<Models.pokemon> Results{
+          get
+          {
+            return this.pokemonResults;
+          }
+        }
+        public string? Name
+        {
+          get => _name;
+          set
+          {
+          if (_name != value)
+            {
+              _name = value;
+              UpdateQuery();
+            }
+          }
+        }
+        //úkol - stejně dodělat pro ostatní názvy v tabulce        
+
+        private void UpdateQuery(){
+           IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
+
+            //Ability
+            if (this.Ability != null && this.Ability.Length > 0)
+             {
+               pokemonQuery = pokemonQuery.Where(p =>
+                 _context.ability
+                 .Where(a => a.name == this.Ability)
+                 .Any(a => a.id == p.primary_ability || a.id == p.secondary_ability || a.id == p.hidden_ability)
+               );
+             }
+            //Move - úkol
+            //Type
+            bool type1exists = this.Type1 != null && this.Type1.Length > 0;
+            bool type2exists = this.Type2 != null && this.Type2.Length > 0;
+            if (type1exists && type2exists && this.Type1 != this.Type2)
+            {
+              pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2));
+            }
+            else if (this.Type1 != null && this.Type1.Length > 0)
+            {
+              pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type1 || p.secondary_type == this.Type1);
+            }
+            else if (this.Type2 != null && this.Type2.Length > 0)
+            {
+              pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type2 || p.secondary_type == this.Type2);
+            }
+
+            //Generation
+
+            //Legendary Status
+
+            //Apearance - Color
+
+            //Apearance - Shape
+
+            //Apearance - Height 
+            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height >= this.Appearance_Height_Min);
+            if (this.Appearance_Height_Max != null) pokemonQuery = pokemonQuery.Where(p => p.height <= this.Appearance_Height_Max);
+            //Apearance - HP - filtruje pokemony podle minimalní a maximální hodnoty hp
+
+            //Apearance - Weight
+
+            //Apearance - Attack
+
+            //Apearance - Defense
+
+            //Apearance - Special Attack
+            
+            //Apearance - Special Defense
+            
+            //Apearance - Speed
+
+            this.pokemonResults = pokemonQuery.ToList();
+}
+      
+
+```
+
+ 
 Vytvoření aplikace okna.:
 
 App.xaml.cs
 ```C#
 public partial class App : Application
 {
-  //prázdný
+  //necháme prázdný
 }
 ```
 Nastavení designu hlavního okna.
@@ -606,132 +726,133 @@ public partial class MainWindow : Window
     
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
-        
+        //dodělat
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void PokemonDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Name_TextChanged(object sender, TextChangedEventArgs e)
     {
     
+        //dodělat
     }
 
     private void Type1_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Type2_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Generation_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void KnowsMove_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Ability_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void LegendaryStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Color_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Shape_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Height_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Height_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_HP_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_HP_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Attack_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Attack_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Defense_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Defense_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_SpAtt_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_SpAtt_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_SpDef_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_SpDef_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Speed_Min_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 
     private void Appearance_Speed_Max_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+        //dodělat
     }
 }
 ```
