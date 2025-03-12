@@ -88,12 +88,12 @@ namespace ER_WPF.Models;
 public partial class ability
 {
     [Key]
-    public int Id { get; set; }
-    public string? Name { get; set; }
-    public string? Effect { get; set; }
-    public string? ShortEffect { get; set; }
-    public string? Description { get; set; }
-    public int? Generation { get; set; }
+    public int id { get; set; }
+    public string? name { get; set; }
+    public string? effect { get; set; }
+    public string? short_effect { get; set; }
+    public string? description { get; set; }
+    public int? generation { get; set; }
 }
 
 ```
@@ -107,31 +107,29 @@ namespace ER_WPF.Models;
 public partial class move
 {
     [Key]
-    public int Id { get; set; }
-    public string? Name { get; set; }
-    public int? Accuracy { get; set; }
-    public string? DamageClass { get; set; }
-    public int? EffectChance { get; set; }
-    public int? Generation { get; set; }
-    public string? Ailment { get; set; }
-    public int? AilmentChance { get; set; }
-    public int? CritRate { get; set; }
-    public int? Drain { get; set; }
-    public int? FlinchChance { get; set; }
-    public int? Healing { get; set; }
-    public int? MaxHits { get; set; }
-    public int? MaxTurns { get; set; }
-    public int? MinHits { get; set; }
-    public int? MinTurns { get; set; }
-    public int? StatChance { get; set; }
-    public int? Power { get; set; }
-    public int? Pp { get; set; }
-    public int? Priority { get; set; }
-    public string? Target { get; set; }
-    public string? Type { get; set; }
-    public string? Description { get; set; }
+    public int id { get; set; }
+    public string? name { get; set; }
+    public int? accuracy { get; set; }
+    public string? damage_class { get; set; }
+    public int? effect_chance { get; set; }
+    public int? generation { get; set; }
+    public string? ailment { get; set; }
+    public int? ailment_chance { get; set; }
+    public int? crit_rate { get; set; }
+    public int? drain { get; set; }
+    public int? flinch_chance { get; set; }
+    public int? healing { get; set; }
+    public int? max_hits { get; set; }
+    public int? min_turns { get; set; }
+    public int? stat_chance { get; set; }
+    public int? power { get; set; }
+    public int? pp { get; set; }
+    public int? priority { get; set; }
+    public string? target { get; set; }
+    public string? type { get; set; }
+    public string? description { get; set; }
 }
-
+```
 pokemon.cs
 ```C#
 using System.ComponentModel.DataAnnotations;
@@ -141,40 +139,40 @@ namespace ER_WPF.Models;
 public partial class pokemon
 {
     [Key]
-    public int Id { get; set; }
-    public int? BaseExperience { get; set; }
-    public int? Height { get; set; }
-    public int? Weight { get; set; }
-    public int? Order { get; set; }
-    public int? PrimaryAbility { get; set; }
-    public int? SecondaryAbility { get; set; }
-    public int? HiddenAbility { get; set; }
-    public int? Species { get; set; }
-    public int? Hp { get; set; }
-    public int? HpEffort { get; set; }
-    public int? Attack { get; set; }
-    public int? AttackEffort { get; set; }
-    public int? Defense { get; set; }
-    public int? DefenseEffort { get; set; }
-    public int? SpecialAttack { get; set; }
-    public int? SpecialAttackEffort { get; set; }
-    public int? SpecialDefense { get; set; }
-    public int? SpecialDefenseEffort { get; set; }
-    public int? Speed { get; set; }
-    public int? SpeedEffort { get; set; }
-    public string? SpriteFrontDefault { get; set; }
-    public string? SpriteFrontFemale { get; set; }
-    public string? SpriteFrontShinyFemale { get; set; }
-    public string? SpriteFrontShiny { get; set; }
-    public string? SpriteBackDefault { get; set; }
-    public string? SpriteBackFemale { get; set; }
-    public string? SpriteBackShinyFemale { get; set; }
-    public string? SpriteBackShiny { get; set; }
-    public string? Cry { get; set; }
-    public string? CryLegacy { get; set; }
-    public string? Name { get; set; }
-    public string? PrimaryType { get; set; }
-    public string? SecondaryType { get; set; }
+    public int? id { get; set; }
+    public int? base_experience { get; set; }
+    public int? height { get; set; }
+    public int? weight { get; set; }
+    public int? order { get; set; }
+    public int? primary_ability { get; set; }
+    public int? secondary_ability { get; set; }
+    public int? hidden_ability { get; set; }
+    public int? species { get; set; }
+    public int? hp { get; set; }
+    public int? hp_effort { get; set; }
+    public int? attack { get; set; }
+    public int? attack_effort { get; set; }
+    public int? defense { get; set; }
+    public int? defense_effort { get; set; }
+    public int? special_attack { get; set; }
+    public int? special_attack_effort { get; set; }
+    public int? special_defense { get; set; }
+    public int? special_defense_effort { get; set; }
+    public int? speed { get; set; }
+    public int? speed_effort { get; set; }
+    public string? sprite_front_default { get; set; }
+    public string? sprite_front_female { get; set; }
+    public string? sprite_front_shiny_female { get; set; }
+    public string? sprite_front_shiny { get; set; }
+    public string? sprite_back_default { get; set; }
+    public string? sprite_back_female { get; set; }
+    public string? sprite_back_shiny_female { get; set; }
+    public string? sprite_back_shiny { get; set; }
+    public string? cry { get; set; }
+    public string? cry_legacy { get; set; }
+    public string? name { get; set; }
+    public string? primary_type { get; set; }
+    public string? secondary_type { get; set; }
 }
 ```
 
@@ -210,7 +208,6 @@ namespace ER_WPF.Models
 
     }
 }
-
 ```
 
 pokemon_move.cs
@@ -292,7 +289,7 @@ namespace ER_WPF.Data
 }
 ```
 
-5. Vytvořte složku s názvem query a v ní query soubor. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#.
+5. Vytvořte složku s názvem Query a v ní query soubor. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#.
 
 PokemonBriefDetails.cs
 ```C#
@@ -463,13 +460,6 @@ Vytvoření aplikace okna.:
 
 App.xaml.cs
 ```C#
-using System.Windows;
-
-namespace ER_WPF;
-
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
 public partial class App : Application
 {
     protected override void OnStartup(StartupEventArgs e)
