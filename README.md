@@ -583,10 +583,12 @@ namespace ER_WPF.Query
 
             this.pokemonResults = pokemonQuery.ToList();
 }
-      
-
 ```
-
+Úkol:
+Udělej následující metody 
+- Najděte Pokémona podle ID v databázi.
+- Upravte existujícího Pokémona a změnu uložte do databáze.
+- Odstraňte Pokémona z databáze a zobrazte potvrzení o odstranění.
  
 Vytvoření aplikace okna.:
 
@@ -717,6 +719,8 @@ namespace ER_WPF;
 public partial class MainWindow : Window
 {
     private readonly SearchQueryEngine _searchQueryEngine;
+    private readonly PokemonBriefDetails _pokemonBriefDetails;
+    private readonly PokemonFullDetails pokemonFullDetails;
 
     public MainWindow()
     {
@@ -879,11 +883,9 @@ dotnet run
 ```
 
 ### Aplikační část
-Nejaká služba, která nám bude vracet data z databáze array, atd. 
-- Najděte Pokémona podle ID a vypište jeho jméno do konzole.
-- Upravte existujícího Pokémona a změnu uložte do databáze.
-- Odstraňte Pokémona z databáze a zobrazte potvrzení o odstranění.
+Bonus úkol pro ty, co jsou rychlý.
 
 Aplikace s pokémony a možnost vyhledávání, prohlížení pokémonů v aplikaci.
 Úkoly:
-- Najděte Pokémona podle ID a vypište jeho jméno v aplikaci.
+- Pomocí metody najděte Pokémona podle ID vypište jeho jméno a obrázkem v aplikaci.
+- Implementujte filtrační metody, aby fungovali také při vyhledávání v db.
