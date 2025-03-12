@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\pokemonfulldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\pokemonfulldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\searchqueryengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\searchqueryengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\pokemonbriefdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\pokemonbriefdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\pokemon_species.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\pokemon_species.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\pokemonfulldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\pokemonfulldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\ability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\ability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,28 +47,24 @@
       "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\evolution_chain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\query\\pokemonbriefdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\query\\pokemonbriefdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\data\\pokemondatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\data\\pokemondatacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\er_wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\er_wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\ability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\ability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\pokemon_move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\pokemon_move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\models\\pokemon_species.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\models\\pokemon_species.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|c:\\users\\imang\\onedrive\\dokumenty\\github\\object_relation_mapping_c-\\er_wpf\\er_wpf\\er_wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{02729588-3E7E-432E-ABBD-0BD7D3F83CBE}|ER_WPF\\ER_WPF.csproj|solutionrelative:er_wpf\\er_wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\imang\\AppData\\Local\\SourceServer\\735d1a6affcdb7f1818ea89bb89e0f49618965b7e3684731b7fba62797897156\\ER_WPF\\ER_WPF\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -73,61 +77,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "ER_WPF\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml",
-              "RelativeToolTip": "ER_WPF\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-06T11:43:53.899Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ER_WPF\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml.cs",
               "RelativeToolTip": "ER_WPF\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAACAAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T11:16:41.956Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "pokemon_species.cs",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon_species.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\Models\\pokemon_species.cs",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon_species.cs",
-              "RelativeToolTip": "ER_WPF\\Models\\pokemon_species.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBIAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:10:57.235Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\App.xaml.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\App.xaml.cs",
-              "RelativeToolTip": "ER_WPF\\App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T11:31:43.875Z",
               "EditorCaption": ""
             },
             {
@@ -138,115 +108,79 @@
               "RelativeDocumentMoniker": "ER_WPF\\Query\\PokemonFullDetails.cs",
               "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\PokemonFullDetails.cs",
               "RelativeToolTip": "ER_WPF\\Query\\PokemonFullDetails.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAwEMAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T22:55:39.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "move.cs",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\move.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\Models\\move.cs",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\move.cs",
-              "RelativeToolTip": "ER_WPF\\Models\\move.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T12:40:46.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "SearchQueryEngine.cs",
               "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\SearchQueryEngine.cs",
               "RelativeDocumentMoniker": "ER_WPF\\Query\\SearchQueryEngine.cs",
               "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\SearchQueryEngine.cs",
               "RelativeToolTip": "ER_WPF\\Query\\SearchQueryEngine.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAJUAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAB8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T13:16:31.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "pokemon.cs",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\Models\\pokemon.cs",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon.cs",
-              "RelativeToolTip": "ER_WPF\\Models\\pokemon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T12:40:52.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "PokemonBriefDetails.cs",
               "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\PokemonBriefDetails.cs",
               "RelativeDocumentMoniker": "ER_WPF\\Query\\PokemonBriefDetails.cs",
               "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Query\\PokemonBriefDetails.cs",
               "RelativeToolTip": "ER_WPF\\Query\\PokemonBriefDetails.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T13:28:22.703Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "evolution_chain.cs",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\evolution_chain.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\Models\\evolution_chain.cs",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\evolution_chain.cs",
-              "RelativeToolTip": "ER_WPF\\Models\\evolution_chain.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\App.xaml.cs",
+              "RelativeToolTip": "ER_WPF\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:05:18.725Z",
+              "WhenOpened": "2025-03-06T11:31:43.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 6,
               "Title": "ability.cs",
               "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\ability.cs",
               "RelativeDocumentMoniker": "ER_WPF\\Models\\ability.cs",
               "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\ability.cs",
               "RelativeToolTip": "ER_WPF\\Models\\ability.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T12:39:53.739Z"
+              "WhenOpened": "2025-03-06T12:39:53.739Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PokemonDataContext.cs",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Data\\PokemonDataContext.cs",
-              "RelativeDocumentMoniker": "ER_WPF\\Data\\PokemonDataContext.cs",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Data\\PokemonDataContext.cs",
-              "RelativeToolTip": "ER_WPF\\Data\\PokemonDataContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\AssemblyInfo.cs",
+              "RelativeToolTip": "ER_WPF\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T11:12:09.805Z"
+              "WhenOpened": "2025-03-12T08:54:14.324Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ER_WPF.csproj",
-              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
-              "RelativeDocumentMoniker": "ER_WPF\\ER_WPF.csproj",
-              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
-              "RelativeToolTip": "ER_WPF\\ER_WPF.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-06T11:09:41.659Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\App.xaml",
               "RelativeDocumentMoniker": "ER_WPF\\App.xaml",
@@ -258,19 +192,109 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
+              "Title": "pokemon.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\Models\\pokemon.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon.cs",
+              "RelativeToolTip": "ER_WPF\\Models\\pokemon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T12:40:52.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "move.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\move.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\Models\\move.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\move.cs",
+              "RelativeToolTip": "ER_WPF\\Models\\move.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA8wBwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T12:40:46.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "evolution_chain.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\evolution_chain.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\Models\\evolution_chain.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\evolution_chain.cs",
+              "RelativeToolTip": "ER_WPF\\Models\\evolution_chain.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA1wCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:05:18.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PokemonDataContext.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Data\\PokemonDataContext.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\Data\\PokemonDataContext.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Data\\PokemonDataContext.cs",
+              "RelativeToolTip": "ER_WPF\\Data\\PokemonDataContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T11:12:09.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ER_WPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\MainWindow.xaml",
+              "RelativeToolTip": "ER_WPF\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-06T11:43:53.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "pokemon_move.cs",
               "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon_move.cs",
               "RelativeDocumentMoniker": "ER_WPF\\Models\\pokemon_move.cs",
               "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon_move.cs",
               "RelativeToolTip": "ER_WPF\\Models\\pokemon_move.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:10:41.312Z"
+              "WhenOpened": "2025-03-06T13:10:41.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "pokemon_species.cs",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon_species.cs",
+              "RelativeDocumentMoniker": "ER_WPF\\Models\\pokemon_species.cs",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\Models\\pokemon_species.cs",
+              "RelativeToolTip": "ER_WPF\\Models\\pokemon_species.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:10:57.235Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
+              "Title": "ER_WPF.csproj",
+              "DocumentMoniker": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
+              "RelativeDocumentMoniker": "ER_WPF\\ER_WPF.csproj",
+              "ToolTip": "C:\\Users\\imang\\OneDrive\\Dokumenty\\GitHub\\Object_relation_mapping_C-\\ER_WPF\\ER_WPF\\ER_WPF.csproj",
+              "RelativeToolTip": "ER_WPF\\ER_WPF.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-06T11:09:41.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\imang\\AppData\\Local\\SourceServer\\735d1a6affcdb7f1818ea89bb89e0f49618965b7e3684731b7fba62797897156\\ER_WPF\\ER_WPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\735d1a6affcdb7f1818ea89bb89e0f49618965b7e3684731b7fba62797897156\\ER_WPF\\ER_WPF\\MainWindow.xaml.cs",

@@ -18,13 +18,33 @@ namespace ER_WPF.Query
         {
             None, Legendary, Mythical
         }
-
         private string? _name, _type1, _type2, _knowsmove, _ability, _appearance_color, _appearance_shape;
         private int? _generation, _appearance_height_min, _appearance_height_max, _appearance_weight_min, _appearance_weight_max;
         private int? _stat_hp_min, _stat_attack_min, _stat_defense_min, _stat_spatt_min, _stat_spdef_min, _stat_speed_min;
         private int? _stat_hp_max, _stat_attack_max, _stat_defense_max, _stat_spatt_max, _stat_spdef_max, _stat_speed_max;
         private LegendaryStatuses? _legendarystatus;
 
+        private PokemonDataContext _context;
+        private List<Models.pokemon> pokemonResults;
+
+        public SearchQueryEngine(PokemonDataContext _context)
+        {
+            this._context = _context ?? throw new ArgumentNullException(nameof(_context));
+            this.pokemonResults = new List<Models.pokemon>();
+            this.UpdateQuery();
+        }
+        public List<Models.pokemon> Results
+        {
+            get
+            {
+                return this.pokemonResults;
+            }
+        }
+        public List<Models.pokemon> GetAllPokemons()
+        {
+            return _context.pokemon.ToList();
+        }
+        
         public string? Name
         {
             get => _name;
@@ -326,23 +346,8 @@ namespace ER_WPF.Query
             }
         }
 
-        public List<Models.pokemon> Results{
-            get
-            {
-                return this.pokemonResults;
-            }
-        }
+        
 
-
-        private PokemonDataContext _context;
-        private List<Models.pokemon> pokemonResults;
-
-        SearchQueryEngine(PokemonDataContext _context)
-        {
-            this._context = _context;
-            this.pokemonResults = new List<Models.pokemon>();
-            this.UpdateQuery();
-        }
         private void UpdateQuery()
         {
             IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
@@ -426,17 +431,17 @@ namespace ER_WPF.Query
                 );
             }
 
-            //Apearance - Height
+            //Apearance - Height 
             if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height >= this.Appearance_Height_Min);
-            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height <= this.Appearance_Height_Max);
+            if (this.Appearance_Height_Max != null) pokemonQuery = pokemonQuery.Where(p => p.height <= this.Appearance_Height_Max);
 
             //Apearance - Weight
             if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.weight >= this.Appearance_Weight_Min);
-            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.weight <= this.Appearance_Weight_Max);
+            if (this.Appearance_Height_Max != null) pokemonQuery = pokemonQuery.Where(p => p.weight <= this.Appearance_Weight_Max);
 
-            //Apearance - HP
+            //Apearance - HP - filtruje pokemony podle minimalní a maximální hodnoty hp
             if (this.Stat_HP_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_HP_Min);
-            if (this.Stat_HP_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_HP_Min);
+            if (this.Stat_HP_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_HP_Max);
 
             //Apearance - Attack
             if (this.Stat_Attack_Min != null) pokemonQuery = pokemonQuery.Where(p => p.attack >= this.Stat_Attack_Min);

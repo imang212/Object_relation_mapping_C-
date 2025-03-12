@@ -18,33 +18,29 @@ namespace ER_WPF;
 
 public partial class MainWindow : Window
 {
-    private readonly PokemonDataContext _context;
+    private readonly SearchQueryEngine _searchQueryEngine;
+    private readonly PokemonBriefDetails _pokemonBriefDetails;
+    private readonly PokemonFullDetails pokemonFullDetails;
 
     public MainWindow()
     {
         InitializeComponent();
-        _context = new PokemonDataContext();
+        _searchQueryEngine = new SearchQueryEngine(new PokemonDataContext());
         LoadData();
     }
 
     private void LoadData()
     {
-        var pokemons = _context.pokemon
-            .Select(p => new { p.name })
+        var pokemons = _searchQueryEngine.GetAllPokemons()
+            .Select(p => new { p.name }) 
             .ToList();
+
         PokemonDataGrid.ItemsSource = pokemons;
     }
     
     private void SearchButton_Click(object sender, RoutedEventArgs e)
     {
-        //string searchTerm = NameTextBox.Text;
-        //
-        //var searchResults = _context.pokemon
-        //    .Where(p => p.name.Contains(searchTerm))
-        //    .Select(p => new PokemonFullDetails(_context, p.id)) 
-        //    .ToList();
-        //
-        //PokemonDataGrid.ItemsSource = searchResults;
+        
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
