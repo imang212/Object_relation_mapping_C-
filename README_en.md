@@ -118,6 +118,17 @@ FOREIGN KEY (known_move) REFERENCES move(id) NOT VALID;
 The database consists of six tables: `Ability`, `Move`, `Pokemon`, `Pokemon_Move`, `Pokemon_Species`, and `Ability_Chain`. It contains 11 relationships between tables.
 
 ---
+### Database Operations  
+#### ORM Description  
+![alt text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*vK7NzagpDws_lSJYeKV8Yw.png)  
+
+Here is an example of how ORM works. The mapping logic within Entity Framework accesses the database while also communicating with memory, where individual objects are created.  
+
+![alt text](https://www.tutorialspoint.com/entity_framework/images/conceptual_model.jpg)  
+
+This image provides a more detailed description of what Entity Framework does and how it interacts with various components. It contains the conceptual model of the database, along with sub-operations such as querying, updating the database, or tracking changes. The conceptual model interacts with other operations, which in turn communicate with the application logic, and the application logic then interfaces with the user interface.
+
+---
 
 ### Creating a Project in Visual Studio
 1. Create a new WPF project (Windows Presentation Foundation) in Visual Studio.
