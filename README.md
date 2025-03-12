@@ -1,5 +1,6 @@
 ## Objektově relační mapování, Entity framework
-![image](https://github.com/user-attachments/assets/d145dc37-47f0-41f3-b267-b19d5cf1391b)
+![image](https://github.com/user-attachments/assets/918339ab-c143-4f31-b718-c8f21b5ddb94)
+
 ### Požadavky
 - windows OS s nainstalovaným PostgreSQL 17.4
 - Visual Studio s podporou .NET
@@ -462,11 +463,7 @@ App.xaml.cs
 ```C#
 public partial class App : Application
 {
-    protected override void OnStartup(StartupEventArgs e)
-    {
-        base.OnStartup(e);
-        new MainWindow().Show();
-    }
+  //prázdný
 }
 ```
 Nastavení designu hlavního okna.
