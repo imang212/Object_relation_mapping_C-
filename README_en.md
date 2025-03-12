@@ -141,7 +141,199 @@ This image provides a more detailed description of what Entity Framework does an
    ```
 
 ---
+3. **Open NuGet Package Manager:**
+   - Right-click the project in **Solution Explorer** and select **Manage NuGet Packages**.
+   - **Browse:** Switch to the **Browse** tab.
+   - Open the .NET console and install the latest package versions.
 
+4. **Creating Model Classes:**
+   Models can also be generated automatically using the `Microsoft.EntityFrameworkCore.Models` package in the .NET terminal, but here, we create them manually for better clarity.
+
+   Since the tables are already created in the database, the models should match the existing database structure. Ensure that the defined `DbSet<>` names match the table names in the database.
+
+   Example model classes:
+
+   `ability.cs`
+   ```C#
+   using System.ComponentModel.DataAnnotations;
+
+   namespace ER_WPF.Models;
+
+   public partial class ability
+   {
+       [Key]
+       public int id { get; set; }
+       public string? name { get; set; }
+       public string? effect { get; set; }
+       public string? short_effect { get; set; }
+       public string? description { get; set; }
+       public int? generation { get; set; }
+   }
+   move.cs
+
+C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models;
+
+public partial class move
+{
+    [Key]
+    public int id { get; set; }
+    public string? name { get; set; }
+    public int? accuracy { get; set; }
+    public string? damage_class { get; set; }
+    public int? effect_chance { get; set; }
+    public int? generation { get; set; }
+    public string? ailment { get; set; }
+    public int? ailment_chance { get; set; }
+    public int? crit_rate { get; set; }
+    public int? drain { get; set; }
+    public int? flinch_chance { get; set; }
+    public int? healing { get; set; }
+    public int? max_hits { get; set; }
+    public int? min_turns { get; set; }
+    public int? stat_chance { get; set; }
+    public int? power { get; set; }
+    public int? pp { get; set; }
+    public int? priority { get; set; }
+    public string? target { get; set; }
+    public string? type { get; set; }
+    public string? description { get; set; }
+}
+
+pokemon.cs
+C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models;
+
+public partial class pokemon
+{
+    [Key]
+    public int? id { get; set; }
+    public int? base_experience { get; set; }
+    public int? height { get; set; }
+    public int? weight { get; set; }
+    public int? order { get; set; }
+    public int? primary_ability { get; set; }
+    public int? secondary_ability { get; set; }
+    public int? hidden_ability { get; set; }
+    public int? species { get; set; }
+    public int? hp { get; set; }
+    public int? hp_effort { get; set; }
+    public int? attack { get; set; }
+    public int? attack_effort { get; set; }
+    public int? defense { get; set; }
+    public int? defense_effort { get; set; }
+    public int? special_attack { get; set; }
+    public int? special_attack_effort { get; set; }
+    public int? special_defense { get; set; }
+    public int? special_defense_effort { get; set; }
+    public int? speed { get; set; }
+    public int? speed_effort { get; set; }
+    public string? sprite_front_default { get; set; }
+    public string? sprite_front_female { get; set; }
+    public string? sprite_front_shiny_female { get; set; }
+    public string? sprite_front_shiny { get; set; }
+    public string? sprite_back_default { get; set; }
+    public string? sprite_back_female { get; set; }
+    public string? sprite_back_shiny_female { get; set; }
+    public string? sprite_back_shiny { get; set; }
+    public string? cry { get; set; }
+    public string? cry_legacy { get; set; }
+    public string? name { get; set; }
+    public string? primary_type { get; set; }
+    public string? secondary_type { get; set; }
+}
+
+
+pokemon_species.cs
+C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models
+{
+    class pokemon_species
+    {
+        [Key]
+        public int? id { get; set; }
+        public int? base_happiness { get; set; }
+        public int? capture_rate { get; set; }
+        public int? gender_rate { get; set; }
+        public int? hatch_counter { get; set; }
+        public int? order { get; set; }
+        public int? generation { get; set; }
+        public int? national_pokedex_number { get; set; }
+        public bool? is_baby { get; set; }
+        public bool? is_legendary { get; set; }
+        public bool? is_mythical { get; set; }
+        public string? color { get; set; }
+        public string? growth_rate { get; set; }
+        public string? habitat { get; set; }
+        public string? shape { get; set; }
+        public string? genera { get; set; }
+        public string? name { get; set; }
+        public string? egg_group { get; set; }
+        public string? varieties { get; set; }
+        public string? description { get; set; }
+
+    }
+}
+
+
+pokemon_move.cs
+C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models
+{
+    class pokemon_move
+    {
+        [Key]
+        public int? pokemon { get; set; }
+        public int? move { get; set; }
+        public int? level_learned_at { get; set; }
+        public string? learn_method { get; set; }
+    }
+}
+
+
+evolution_chain.cs
+C#
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ER_WPF.Models
+{
+    class evolution_chain
+    {
+        [Key]
+        public int id { get; set; }
+        [Column("\"from\"")]
+        public int? from { get; set; }
+        [Column("\"to\"")]
+        public int? to { get; set; }
+        public int? gender { get; set; }
+        public int? min_beauty { get; set; }
+        public int? min_happiness { get; set; }
+        public int? min_level { get; set; }
+        public string? trade_species { get; set; }
+        public int? relative_physical_stats { get; set; }
+        public string? item { get; set; }
+        public string? held_item { get; set; }
+        public string? known_move { get; set; }
+        public string? known_move_type { get; set; }
+        public string? trigger { get; set; }
+        public string? party_species { get; set; }
+        public string? party_type { get; set; }
+        public string? time_of_day { get; set; }
+        public bool? needs_overworld_rain { get; set; }
+        public bool? turn_upside_down { get; set; }
+
+    }}
+```
+---
 ### Connecting to the Database
 Create a new folder `Data` in your project and add a context class `PokemonDataContext.cs`, which manages database communication.
 
