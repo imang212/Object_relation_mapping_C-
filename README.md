@@ -59,7 +59,7 @@ Zde je příklad toho, jak funguje ORM. Mapping logic, který obsahuje entity fr
 V tomto obrázku je detainější popis toho, co vlastně dělá entity framework a s čím vším komunikuje. Nachází se v něm konceptuální model db a potom ještě podoperace jako jsou query, aktualizace do db nebo zaznamenávání změn v db. Konceptuální model s dalšími operacemi komunikuje s logikou aplikace a logika aplikace pak s uživatelskym rozhraním.
 
 #### Vytvoření projektu ve visual studiu
-1. Vytvořte nový WPF projekt (Windows Presentation Foundation) ve visual studiu, který bude fungovat pomocí dotnet 9.0.
+1. Vytvořte nový WPF projekt (Windows Presentation Foundation) ve visual studiu.
 2. Nainstalujte potřebné balíčky
 Pomocí dotnet konzole.:
 ```
@@ -84,11 +84,12 @@ Vytvoříme modelové třídy podle databáze.:
 dotnet ef dbcontext scaffold "Host=localhost;Database=postgres;Username=postgres;Password=" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -f
 ```
 Databáze už by měla být načtená podle modelů.
-Modely se mohou k existujícím tabulkám v vytvořit ručně, jé nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db. 
+Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db. 
+
 
 4. Připojení k databázi
  
-Vytvořte kontextovou třídu PokemonDataKontext.cs, která se stará o komunikaci s databází.
+V projektu vytvořte novou složku Data a v ní vytvořte kontextovou třídu PokemonDataKontext.cs, která se stará o komunikaci s databází.
 ```C#
 using Microsoft.EntityFrameworkCore;
 using ER_WPF.Models;
