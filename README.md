@@ -65,6 +65,7 @@ Pomocí dotnet konzole.:
 ```
 Install-Package Microsoft.EntityFrameworkCore
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Design
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 ```
@@ -86,7 +87,192 @@ dotnet ef dbcontext scaffold "Host=localhost;Database=postgres;Username=postgres
 Databáze už by měla být načtená podle modelů.
 Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db. 
 
+ability.cs
+```C#
+using System.ComponentModel.DataAnnotations;
 
+namespace ER_WPF.Models;
+
+public partial class ability
+{
+    [Key]
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? Effect { get; set; }
+    public string? ShortEffect { get; set; }
+    public string? Description { get; set; }
+    public int? Generation { get; set; }
+}
+
+```
+move.cs
+
+```C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models;
+
+public partial class move
+{
+    [Key]
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public int? Accuracy { get; set; }
+    public string? DamageClass { get; set; }
+    public int? EffectChance { get; set; }
+    public int? Generation { get; set; }
+    public string? Ailment { get; set; }
+    public int? AilmentChance { get; set; }
+    public int? CritRate { get; set; }
+    public int? Drain { get; set; }
+    public int? FlinchChance { get; set; }
+    public int? Healing { get; set; }
+    public int? MaxHits { get; set; }
+    public int? MaxTurns { get; set; }
+    public int? MinHits { get; set; }
+    public int? MinTurns { get; set; }
+    public int? StatChance { get; set; }
+    public int? Power { get; set; }
+    public int? Pp { get; set; }
+    public int? Priority { get; set; }
+    public string? Target { get; set; }
+    public string? Type { get; set; }
+    public string? Description { get; set; }
+}
+
+pokemon.cs
+```C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models;
+
+public partial class pokemon
+{
+    [Key]
+    public int Id { get; set; }
+    public int? BaseExperience { get; set; }
+    public int? Height { get; set; }
+    public int? Weight { get; set; }
+    public int? Order { get; set; }
+    public int? PrimaryAbility { get; set; }
+    public int? SecondaryAbility { get; set; }
+    public int? HiddenAbility { get; set; }
+    public int? Species { get; set; }
+    public int? Hp { get; set; }
+    public int? HpEffort { get; set; }
+    public int? Attack { get; set; }
+    public int? AttackEffort { get; set; }
+    public int? Defense { get; set; }
+    public int? DefenseEffort { get; set; }
+    public int? SpecialAttack { get; set; }
+    public int? SpecialAttackEffort { get; set; }
+    public int? SpecialDefense { get; set; }
+    public int? SpecialDefenseEffort { get; set; }
+    public int? Speed { get; set; }
+    public int? SpeedEffort { get; set; }
+    public string? SpriteFrontDefault { get; set; }
+    public string? SpriteFrontFemale { get; set; }
+    public string? SpriteFrontShinyFemale { get; set; }
+    public string? SpriteFrontShiny { get; set; }
+    public string? SpriteBackDefault { get; set; }
+    public string? SpriteBackFemale { get; set; }
+    public string? SpriteBackShinyFemale { get; set; }
+    public string? SpriteBackShiny { get; set; }
+    public string? Cry { get; set; }
+    public string? CryLegacy { get; set; }
+    public string? Name { get; set; }
+    public string? PrimaryType { get; set; }
+    public string? SecondaryType { get; set; }
+}
+```
+
+pokemon_species.cs
+```C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models
+{
+    class pokemon_species
+    {
+        [Key]
+        public int? id { get; set; }
+        public int? base_happiness { get; set; }
+        public int? capture_rate { get; set; }
+        public int? gender_rate { get; set; }
+        public int? hatch_counter { get; set; }
+        public int? order { get; set; }
+        public int? generation { get; set; }
+        public int? national_pokedex_number { get; set; }
+        public bool? is_baby { get; set; }
+        public bool? is_legendary { get; set; }
+        public bool? is_mythical { get; set; }
+        public string? color { get; set; }
+        public string? growth_rate { get; set; }
+        public string? habitat { get; set; }
+        public string? shape { get; set; }
+        public string? genera { get; set; }
+        public string? name { get; set; }
+        public string? egg_group { get; set; }
+        public string? varieties { get; set; }
+        public string? description { get; set; }
+
+    }
+}
+
+```
+
+pokemon_move.cs
+```C#
+using System.ComponentModel.DataAnnotations;
+
+namespace ER_WPF.Models
+{
+    class pokemon_move
+    {
+        [Key]
+        public int? pokemon { get; set; }
+        public int? move { get; set; }
+        public int? level_learned_at { get; set; }
+        public string? learn_method { get; set; }
+    }
+}
+```
+
+evolution_chain.cs
+```C#
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ER_WPF.Models
+{
+    class evolution_chain
+    {
+        [Key]
+        public int id { get; set; }
+        [Column("\"from\"")]
+        public int? from { get; set; }
+        [Column("\"to\"")]
+        public int? to { get; set; }
+        public int? gender { get; set; }
+        public int? min_beauty { get; set; }
+        public int? min_happiness { get; set; }
+        public int? min_level { get; set; }
+        public string? trade_species { get; set; }
+        public int? relative_physical_stats { get; set; }
+        public string? item { get; set; }
+        public string? held_item { get; set; }
+        public string? known_move { get; set; }
+        public string? known_move_type { get; set; }
+        public string? trigger { get; set; }
+        public string? party_species { get; set; }
+        public string? party_type { get; set; }
+        public string? time_of_day { get; set; }
+        public bool? needs_overworld_rain { get; set; }
+        public bool? turn_upside_down { get; set; }
+
+    }
+}
+```
 4. Připojení k databázi
  
 V projektu vytvořte novou složku Data a v ní vytvořte kontextovou třídu PokemonDataKontext.cs, která se stará o komunikaci s databází.
@@ -110,16 +296,469 @@ namespace ER_WPF.Data
         }
     }
 }
-
 ```
 
-5. Vytvoření query souboru. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#. 
+5. Vytvořte složku s názvem query a v ní query soubor. Entity Frameworku, kde se budou provádět CRUD operace na databázi přímo pomocí objektů v C#.
+```C#
+PokemonBriefDetails.cs
+using ER_WPF.Data;
+using ER_WPF.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.Swift;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
+namespace ER_WPF.Query
+{
+    class PokemonBriefDetails
+    {
+        private Models.pokemon pokemon;
+        private string spriteUrl;
+        private BitmapImage sprite;
+        private string type1;
+        private string type2;
+
+        public Models.pokemon Pokemon { get => pokemon; }
+        public BitmapImage Sprite { get => sprite; }
+        public string Type1 { get => type1; }
+        public string Type2 { get => type2; }
+
+        private PokemonDataContext _context;
+
+        public PokemonBriefDetails(PokemonDataContext _context, Models.pokemon pokemon)
+        { 
+            this._context = _context;
+            this.pokemon = pokemon;
+            this.type1 = pokemon.primary_type;
+            this.type2 = pokemon.secondary_type;
+            this.spriteUrl = spriteUrl;
+            this.sprite = loadImage(this.spriteUrl);
+        }
+
+        private BitmapImage loadImage(string url)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri(url);
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.EndInit();
+
+            return bitmapImage;
+        }
+    }
+}
+```
+```C#
+PokemonFullDetails.cs
+using ER_WPF.Data;
+using ER_WPF.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
+
+namespace ER_WPF.Query
+{
+    class PokemonFullDetails
+    {
+        private Models.pokemon pokemon;
+        private List<Models.move> moves;
+        private Models.pokemon_species species;
+        private EvolutionTreeNode evolutionTree;
+        private List<Models.ability> abilities;
+        private string spriteUrl;
+        private BitmapImage sprite;
+
+        Models.pokemon Pokemon { get => this.pokemon; }
+        public List<Models.move> Moves { get => this.moves; }
+        public Models.pokemon_species Species { get => this.species; }
+        public EvolutionTreeNode EvolutionTree { get => this.evolutionTree; }
+        public List<Models.ability> Abilities { get => this.abilities; }
+        public BitmapImage Sprite { get => sprite; }
+
+        private PokemonDataContext _context;
+        public PokemonFullDetails(PokemonDataContext _context, int? id) {
+            this._context = _context;
+            Update(id);
+        }
+
+        void Update(int? id)
+        {
+            this.pokemon = this._context.pokemon.FirstOrDefault(p => p.id == id);
+            if (this.pokemon == null)
+            {
+                this.moves = null;
+                this.species = null;
+                this.evolutionTree = null;
+                this.abilities = null;
+                return;
+            }
+
+            this.moves = this._context.move.Where(m => _context.pokemon_move.Any(pm => pm.pokemon == id)).ToList();
+            this.species = this._context.pokemon_species.FirstOrDefault(s => s.id == this.Pokemon.species);
+            this.evolutionTree = EvolutionTreeNode.Create(this._context, this.Pokemon);
+            this.abilities = this._context.ability.Where(
+                a => a.id == this.Pokemon.primary_ability ||
+                a.id == this.Pokemon.secondary_ability ||
+                a.id == this.Pokemon.hidden_ability
+            ).ToList();
+
+            this.spriteUrl = spriteUrl;
+            this.sprite = loadImage(this.spriteUrl);
+        }
+
+        private BitmapImage loadImage(string url)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri(url);
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.EndInit();
+
+            return bitmapImage;
+        }
+
+        public class EvolutionTreeNode
+        {
+            public readonly List<EvolutionTreeNode> children;
+            public readonly Models.pokemon pokemon;
+            public readonly Models.evolution_chain evolutionChain;
+
+            private EvolutionTreeNode(Models.pokemon pokemon, Models.evolution_chain evolutionChain) {
+                children = new List<EvolutionTreeNode>();
+                pokemon = pokemon;
+                this.evolutionChain = evolutionChain;
+            }
+
+            public static EvolutionTreeNode Create(PokemonDataContext _context, Models.pokemon pkmn)
+            {
+                if (pkmn == null) return null;
+                EvolutionTreeNode node = new EvolutionTreeNode(pkmn, null);
+                List<Models.pokemon> pokemon = _context.pokemon.Where(p =>
+                    _context.evolution_chain.Where(ec => ec.from == pkmn.id).Any(ec => ec.to == p.id)
+                ).ToList();
+                foreach (Models.pokemon p in pokemon)
+                {
+                    node.children.Add(EvolutionTreeNode.Create(_context, p));
+                }
+                return node;
+            }
+        }
+    }
+}
+```
+
+Úkol: Vytvořte si soubor SearchQueryEngine.cs, který bude sloužit pro vyhledávání pokémonů, různých dat a statistik u pokémonů.
+Řetězce - name, type1, type2, knowsmove, ability, appearance_color, appearance_shape;
+Integery - generation, appearance_height_min, appearance_height_max, appearance_weight_min, appearance_weight_max;
+Integery ukazující max a min statistiky - _stat_hp_min, _stat_attack_min, _stat_defense_min, _stat_spatt_min, _stat_spdef_min, _stat_speed_min, _stat_hp_max, _stat_attack_max, _stat_defense_max, _stat_spatt_max, _stat_spdef_max, _stat_speed_max;
+Legendary status -  LegendaryStatuses _legendarystatus; V tom budou možnosti (None, Legendary a Mythical)
+
+ 
 Migrace se zde nemusí uskutečňovat, jelikož databáze už je předvytvořená pomocí python scriptu. Například pokud změním nebo vytvořím modely tříd, tak se vytvoří nový soubor s SQL změnami a vytvoří tabulky v db, které odpovídají určitým modelům tříd. Zmiňuji to, protože je to také běžná součást EF.
+
+Vytvoření aplikace okna.:
+
+App.xaml.cs
+```C#
+using System.Windows;
+
+namespace ER_WPF;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
+{
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+        new MainWindow().Show();
+    }
+}
+```
+Nastavení designu hlavního okna.
+
+MainWindow.xaml
+```C#
+<Window x:Class="ER_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pokemon List" Height="720" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="False" Margin="22,20,0,0" SelectionChanged="PokemonDataGrid_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Height="630" Width="720" IsReadOnly="True" HeadersVisibility="None" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="{Binding Sprite}" Width="100" Height="100" Margin="5"/>
+                                <TextBlock Text="{Binding name}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Column="1" Margin="720,0,0,0">
+            <Button x:Name="SearchButton" Content="SEARCH" Margin="40,20,0,0" Click="SearchButton_Click" FontWeight="Bold" IsCancel="True" Width="197" Height="30" HorizontalAlignment="Left"/>
+            <Label Content="NAME:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="NameTextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" Height="25" TextChanged="Name_TextChanged"/>
+            <Label Content="TYPE:" HorizontalAlignment="Left" Width="70" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <Grid Margin="0,0,0,10">
+                <ComboBox HorizontalAlignment="Left" Margin="45,0,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="Type1_SelectionChanged"/>
+                <ComboBox  Margin="158,0,0,0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="Type2_SelectionChanged"/>
+            </Grid>
+            <Grid Margin="0,-2,0,0">
+                <Label Grid.Column="0" Content="GENERATION:" HorizontalAlignment="Left" Margin="40,-4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
+                <ComboBox HorizontalAlignment="Left" Margin="158,0,0,4" Width="80" SelectionChanged="Generation_SelectionChanged" RenderTransformOrigin="0.309,0.685"/>
+            </Grid>
+            <Label Content="KNOWS MOVE:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
+            <TextBox x:Name="KnowsMove_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="KnowsMove_TextChanged" Height="20"/>
+            <Label Content="ABILITY:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
+            <TextBox x:Name="Ability_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="Ability_TextChanged" Height="21"/>
+            <Label Content="LEGENDARY:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118" RenderTransformOrigin="0.451,0.784"/>
+            <ComboBox HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="LegendaryStatus_SelectionChanged"/>
+            <Label Content="APPEARANCE:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
+            <Grid Margin="0,0,0,0">
+                <Label Content="COLOR:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.474,-1.683"/>
+                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Color_SelectionChanged"/>
+            </Grid>
+            <Grid Margin="0,0,0,0">
+                <Label Content="SHAPE:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
+                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Shape_SelectionChanged"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="HEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput2" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-3,0,0">
+                <Label Content="WEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput3" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Max_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput4" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Height_Max_TextChanged"/>
+            </StackPanel>
+            <Label Content="STATS:" HorizontalAlignment="Left" Margin="40,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="HP" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput5" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_HP_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput6" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_HP_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="ATTACK:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput7" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Attack_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput8" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Attack_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="DEFENSE:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Width="70"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput9" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Defense_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput10" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Defense_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="SP.ATT.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput11" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpAtt_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput12" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpAtt_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="SP.DEF.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput13" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpDef_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput14" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpDef_Max_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
+                <Label Content="SPEED:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput15" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Speed_Min_TextChanged"/>
+                <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput16" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Speed_Max_TextChanged"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
+```
+
+Cs soubor hlavního okna pro nastavování funkcí
+
+MainWindow.xaml.cs
+```C#
+using System.Windows.Controls;
+using ER_WPF.Data;
+using ER_WPF.Query;
+
+namespace ER_WPF;
+
+
+public partial class MainWindow : Window
+{
+    private readonly PokemonDataContext _context;
+
+    public MainWindow()
+    {
+        InitializeComponent();
+        _context = new PokemonDataContext();
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        var pokemons = _context.pokemon
+            .Select(p => new { p.name })
+            .ToList();
+        PokemonDataGrid.ItemsSource = pokemons;
+    }
+    
+    private void SearchButton_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void PokemonDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Name_TextChanged(object sender, TextChangedEventArgs e)
+    {
+    
+    }
+
+    private void Type1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Type2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Generation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void KnowsMove_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Ability_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void LegendaryStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Color_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Shape_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Height_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Height_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_HP_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_HP_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Attack_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Attack_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Defense_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Defense_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_SpAtt_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_SpAtt_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_SpDef_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_SpDef_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Speed_Min_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void Appearance_Speed_Max_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+}
+```
+
+
+Sestavení projektu.
+```
+dotnet build
+```
 
 6. Po úspěšném sestavení (dotnet build)
 ```
-dotnet build
 dotnet run
 ```
 
