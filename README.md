@@ -516,7 +516,9 @@ namespace ER_WPF.Query
             }
           }
         }
-        //úkol - stejně dodělat pro ostatní názvy v tabulce        
+        //úkol - stejně dodělat pro ostatní názvy v tabulce
+
+      
 
         private void UpdateQuery(){
            IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
@@ -531,6 +533,8 @@ namespace ER_WPF.Query
                );
              }
             //Move - úkol
+
+
             //Type
             bool type1exists = this.Type1 != null && this.Type1.Length > 0;
             bool type2exists = this.Type2 != null && this.Type2.Length > 0;
