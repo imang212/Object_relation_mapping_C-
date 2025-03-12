@@ -6,6 +6,7 @@
 - Visual Studio s podporou .NET
 - .NET 9.0
 - Python 3.11+ (pro skript instalace databáze)
+- pgAdmin 4
   
 ### Skript na instalaci databáze
 Script používající ORM v pythonu pro vytvoření databáze PostgreSQL.
