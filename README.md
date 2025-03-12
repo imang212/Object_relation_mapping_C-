@@ -716,14 +716,12 @@ namespace ER_WPF;
 
 public partial class MainWindow : Window
 {
-    private readonly PokemonDataContext _context;
     private readonly SearchQueryEngine _searchQueryEngine;
 
     public MainWindow()
     {
         InitializeComponent();
-        _context = new PokemonDataContext();
-        _searchQueryEngine = new SearchQueryEngine(_context);
+        _searchQueryEngine = new SearchQueryEngine(new PokemonDataContext());
         LoadData();
     }
 
