@@ -76,17 +76,8 @@ Procházet: Přepněte na záložku Browse.
 Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze:
 
 3. Vytvoření modelových tříd.:
-Nasměrujeme se do složky projektu.
-```
-cd C:\Users\imang\OneDrive\Dokumenty\GitHub\Object_relation_mapping_C-\ER_WPF\ER_WPF
-```
-Vytvoříme modelové třídy podle databáze.:
-```
-dotnet ef dbcontext scaffold "Host=localhost;Database=postgres;Username=postgres;Password=" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -f
-```
 Databáze už by měla být načtená podle modelů.
 Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db. 
-
 ability.cs
 ```C#
 using System.ComponentModel.DataAnnotations;
