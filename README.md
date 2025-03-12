@@ -475,7 +475,7 @@ SearchQueryEngine.cs
 ```C#
 using Vyhledavac_pokemonu.Data;
 
-namespace ER_WPF.Query
+namespace Vyhledavac_pokemonu.Query
 {
     class SearchQueryEngine
     {
@@ -498,45 +498,110 @@ namespace ER_WPF.Query
             this.pokemonResults = new List<Models.pokemon>();
             this.UpdateQuery();
         }
-        public List<Models.pokemon> Results{
-          get
-          {
-            return this.pokemonResults;
-          }
+        public List<Models.pokemon> Results
+        {
+            get
+            {
+                return this.pokemonResults;
+            }
         }
         public List<Models.pokemon> GetAllPokemons()
         {
-          return _context.pokemon.ToList();
+            return _context.pokemon.ToList();
         }
-        
+
         public string? Name
         {
-          get => _name;
-          set
-          {
-          if (_name != value)
+            get => _name;
+            set
             {
-              _name = value;
-              UpdateQuery();
+                if (_name != value)
+                {
+                    _name = value;
+                    UpdateQuery();
+                }
             }
-          }
         }
         //úkol - stejně dodělat pro ostatní názvy v tabulce
+        public string? Type1
+        {
+            get => _type1;
+            set
+            {
+                if (_type1 != value)
+                {
+                    _type1 = value;
+                    UpdateQuery();
+                }
+            }
+        }
+        public string? Type2
+        {
+            get => _type2;
+            set
+            {
+                if (_type2 != value)
+                {
+                    _type2 = value;
+                    UpdateQuery();
+                }
+            }
+        }
+        
+       
+        public string? Ability
+        {
+            get => _ability;
+            set
+            {
+                if (_ability != value)
+                {
+                    _ability = value;
+                    UpdateQuery();
+                }
+            }
+        }
+        
+        public int? Appearance_Height_Min
+        {
+            get => _appearance_height_min;
+            set
+            {
+                if (_appearance_height_min != value)
+                {
+                    _appearance_height_min = value;
+                    UpdateQuery();
+                }
+            }
+        }
+        public int? Appearance_Height_Max
+        {
+            get => _appearance_height_max;
+            set
+            {
+                if (_appearance_height_max != value)
+                {
+                    _appearance_height_max = value;
+                    UpdateQuery();
+                }
+            }
+        }
+        
 
-      
 
-        private void UpdateQuery(){
-           IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
-          
+        private void UpdateQuery()
+        {
+            IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
+
             //Ability
             if (this.Ability != null && this.Ability.Length > 0)
-             {
-               pokemonQuery = pokemonQuery.Where(p =>
-                 _context.ability
-                 .Where(a => a.name == this.Ability)
-                 .Any(a => a.id == p.primary_ability || a.id == p.secondary_ability || a.id == p.hidden_ability)
-               );
-             }
+            {
+                pokemonQuery = pokemonQuery.Where(p =>
+                  _context.ability
+                  .Where(a => a.name == this.Ability)
+                  .Any(a => a.id == p.primary_ability || a.id == p.secondary_ability || a.id == p.hidden_ability)
+                );
+            }
             //Move - úkol
 
 
@@ -545,15 +610,15 @@ namespace ER_WPF.Query
             bool type2exists = this.Type2 != null && this.Type2.Length > 0;
             if (type1exists && type2exists && this.Type1 != this.Type2)
             {
-              pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2));
+                pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2));
             }
             else if (this.Type1 != null && this.Type1.Length > 0)
             {
-              pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type1 || p.secondary_type == this.Type1);
+                pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type1 || p.secondary_type == this.Type1);
             }
             else if (this.Type2 != null && this.Type2.Length > 0)
             {
-              pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type2 || p.secondary_type == this.Type2);
+                pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type2 || p.secondary_type == this.Type2);
             }
 
             //Generation
@@ -567,6 +632,7 @@ namespace ER_WPF.Query
             //Apearance - Height 
             if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height >= this.Appearance_Height_Min);
             if (this.Appearance_Height_Max != null) pokemonQuery = pokemonQuery.Where(p => p.height <= this.Appearance_Height_Max);
+            
             //Apearance - HP - filtruje pokemony podle minimalní a maximální hodnoty hp
 
             //Apearance - Weight
@@ -576,12 +642,14 @@ namespace ER_WPF.Query
             //Apearance - Defense
 
             //Apearance - Special Attack
-            
+
             //Apearance - Special Defense
-            
+
             //Apearance - Speed
 
             this.pokemonResults = pokemonQuery.ToList();
+        }
+    }
 }
 ```
 Úkol:
