@@ -169,9 +169,10 @@ This image provides a more detailed description of what Entity Framework does an
        public string? description { get; set; }
        public int? generation { get; set; }
    }
+   ```
    move.cs
 
-C#
+```C#
 using System.ComponentModel.DataAnnotations;
 
 namespace ER_WPF.Models;
@@ -201,9 +202,9 @@ public partial class move
     public string? type { get; set; }
     public string? description { get; set; }
 }
-
+```
 pokemon.cs
-C#
+```C#
 using System.ComponentModel.DataAnnotations;
 
 namespace ER_WPF.Models;
@@ -246,10 +247,10 @@ public partial class pokemon
     public string? primary_type { get; set; }
     public string? secondary_type { get; set; }
 }
-
+```
 
 pokemon_species.cs
-C#
+```C#
 using System.ComponentModel.DataAnnotations;
 
 namespace ER_WPF.Models
@@ -281,9 +282,9 @@ namespace ER_WPF.Models
     }
 }
 
-
+```
 pokemon_move.cs
-C#
+```C#
 using System.ComponentModel.DataAnnotations;
 
 namespace ER_WPF.Models
@@ -298,9 +299,9 @@ namespace ER_WPF.Models
     }
 }
 
-
+```
 evolution_chain.cs
-C#
+```C#
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
