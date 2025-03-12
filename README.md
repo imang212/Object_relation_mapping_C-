@@ -504,6 +504,11 @@ namespace ER_WPF.Query
             return this.pokemonResults;
           }
         }
+        public List<Models.pokemon> GetAllPokemons()
+        {
+          return _context.pokemon.ToList();
+        }
+        
         public string? Name
         {
           get => _name;
@@ -522,7 +527,7 @@ namespace ER_WPF.Query
 
         private void UpdateQuery(){
            IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
-
+          
             //Ability
             if (this.Ability != null && this.Ability.Length > 0)
              {
@@ -712,19 +717,22 @@ namespace ER_WPF;
 public partial class MainWindow : Window
 {
     private readonly PokemonDataContext _context;
+    private readonly SearchQueryEngine _searchQueryEngine;
 
     public MainWindow()
     {
         InitializeComponent();
         _context = new PokemonDataContext();
+        _searchQueryEngine = new SearchQueryEngine(_context);
         LoadData();
     }
 
     private void LoadData()
     {
-        var pokemons = _context.pokemon
-            .Select(p => new { p.name })
-            .ToList();
+        var pokemons = _searchQueryEngine.GetAllPokemons()
+          .Select(p => new { p.name }) 
+          .ToList();
+
         PokemonDataGrid.ItemsSource = pokemons;
     }
     
