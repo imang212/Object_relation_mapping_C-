@@ -69,6 +69,7 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 ```
+
 Otevřeme NuGet Package Manager: 
 
 Klikněte pravým tlačítkem na projekt v Solution Exploreru a vyberte Manage NuGet Packages.
@@ -76,8 +77,10 @@ Procházet: Přepněte na záložku Browse.
 Otevřeme dotnet konzoli a nainstalujte potřebné balíčky nejnovější verze:
 
 3. Vytvoření modelových tříd.:
-Databáze už by měla být načtená podle modelů.
-Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db.
+
+Modely se dají i vytvořit automaticky pomocí balíčku Microsoft.EntityFrameworkCore.Models v dotnet terminálu, ale my je vytvoříme ručně pro lepší přehlednost.
+
+Tabulky už jsou v databázi vytvořené. Modely se mohou k existujícím tabulkám v vytvořit ručně, kdy vytvoříme složku Models a v ní namodelujeme třídy jednotlivých tabulek, ale nutné se ujistit, aby se nám shodovali názvy definovaných DbSetů s názvy tabulek v db.
 
 ability.cs
 ```C#
