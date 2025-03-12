@@ -43,9 +43,31 @@ postgre help
 !Pozor! - Pokud již běží jiný PostgreSQL server na portu 5432, tak nepůjde spustit. Je třeba změnit port nebo smazat server.
 Příkazový řádek se nesmí vypínat, jinak se vypne i server.
 
+#### Vytvoření cizích klíčů v db (foreign keys)
+Připojte se k PostgreSQL databázi a spusťte následující SQL příkazy:
+```SQL
+ALTER TABLE pokemon
+ADD CONSTRAINT fk_pokemon_species
+FOREIGN KEY (species) REFERENCES pokemon_species(id);
+
+ALTER TABLE pokemon_move
+ADD CONSTRAINT fk_pokemon_move_pokemon
+FOREIGN KEY (pokemon) REFERENCES pokemon(id);
+ALTER TABLE pokemon_move
+ADD CONSTRAINT fk_pokemon_move_move
+FOREIGN KEY (move) REFERENCES move(id) NOT VALID;
+
+ALTER TABLE evolution_chain
+ADD CONSTRAINT fk_evolution_chain_from
+FOREIGN KEY ("""from""") REFERENCES pokemon(id);
+ALTER TABLE evolution_chain
+ADD CONSTRAINT fk_evolution_chain_to
+FOREIGN KEY ("""to""") REFERENCES pokemon(id);
+```
+
 #### Model databáze.:
 
-![database_model](https://github.com/user-attachments/assets/1687c886-5546-42ae-9f09-16571a06b1a7)
+![postgres - public](https://github.com/user-attachments/assets/60535e6a-8e72-4da7-b169-7c0d266470b1)
 Databáze se skládá ze 6 tabulek. Ability, move, pokemon, pokemon_move, pokemon_species a ability_chain.
 
 ### Operace s databází
