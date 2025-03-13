@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ER_WPF.Models
 {
-    class pokemon
+    public class pokemon
     {
         [Key]
         public int? id { get; set; }

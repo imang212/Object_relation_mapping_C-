@@ -26,18 +26,30 @@ namespace ER_WPF.Query
 
         private PokemonDataContext _context;
         private List<Models.pokemon> pokemonResults;
+        private List<PokemonBriefDetails> pokemonBriefDetails;
+        private MainWindow window;
 
-        public SearchQueryEngine(PokemonDataContext _context)
+        public SearchQueryEngine(MainWindow window, PokemonDataContext _context)
         {
+            this.window = window;
             this._context = _context ?? throw new ArgumentNullException(nameof(_context));
             this.pokemonResults = new List<Models.pokemon>();
-            this.UpdateQuery();
+            this.pokemonBriefDetails = new List<PokemonBriefDetails>();
+            this.Init();
+            this.window.UpdateGrid();
         }
         public List<Models.pokemon> Results
         {
             get
             {
                 return this.pokemonResults;
+            }
+        }
+        public List<PokemonBriefDetails> DisplayResults
+        {
+            get
+            {
+                return this.pokemonBriefDetails;
             }
         }
         public List<Models.pokemon> GetAllPokemons()
@@ -53,7 +65,7 @@ namespace ER_WPF.Query
                 if (_name != value)
                 {
                     _name = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -65,7 +77,7 @@ namespace ER_WPF.Query
                 if (_type1 != value)
                 {
                     _type1 = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -77,7 +89,7 @@ namespace ER_WPF.Query
                 if (_type2 != value)
                 {
                     _type2 = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -89,7 +101,7 @@ namespace ER_WPF.Query
                 if (_generation != value)
                 {
                     _generation = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -101,7 +113,7 @@ namespace ER_WPF.Query
                 if (_knowsmove != value)
                 {
                     _knowsmove = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -113,7 +125,7 @@ namespace ER_WPF.Query
                 if (_ability != value)
                 {
                     _ability = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -125,7 +137,7 @@ namespace ER_WPF.Query
                 if (_legendarystatus != value)
                 {
                     _legendarystatus = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -137,7 +149,7 @@ namespace ER_WPF.Query
                 if (_appearance_color != value)
                 {
                     _appearance_color = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -149,7 +161,7 @@ namespace ER_WPF.Query
                 if (_appearance_shape != value)
                 {
                     _appearance_shape = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -161,7 +173,7 @@ namespace ER_WPF.Query
                 if (_appearance_height_min != value)
                 {
                     _appearance_height_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -173,7 +185,7 @@ namespace ER_WPF.Query
                 if (_appearance_height_max != value)
                 {
                     _appearance_height_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -185,7 +197,7 @@ namespace ER_WPF.Query
                 if (_appearance_weight_min != value)
                 {
                     _appearance_weight_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -197,7 +209,7 @@ namespace ER_WPF.Query
                 if (_appearance_weight_max != value)
                 {
                     _appearance_weight_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -209,7 +221,7 @@ namespace ER_WPF.Query
                 if (_stat_hp_min != value)
                 {
                     _stat_hp_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -221,7 +233,7 @@ namespace ER_WPF.Query
                 if (_stat_hp_max != value)
                 {
                     _stat_hp_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -233,7 +245,7 @@ namespace ER_WPF.Query
                 if (_stat_attack_min != value)
                 {
                     _stat_attack_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -245,7 +257,7 @@ namespace ER_WPF.Query
                 if (_stat_attack_max != value)
                 {
                     _stat_attack_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -257,7 +269,7 @@ namespace ER_WPF.Query
                 if (_stat_defense_min != value)
                 {
                     _stat_defense_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -269,7 +281,7 @@ namespace ER_WPF.Query
                 if (_stat_defense_max != value)
                 {
                     _stat_defense_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -281,7 +293,7 @@ namespace ER_WPF.Query
                 if (_stat_spatt_min != value)
                 {
                     _stat_spatt_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -293,7 +305,7 @@ namespace ER_WPF.Query
                 if (_stat_spatt_max != value)
                 {
                     _stat_spatt_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -305,7 +317,7 @@ namespace ER_WPF.Query
                 if (_stat_spdef_min != value)
                 {
                     _stat_spdef_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -317,7 +329,7 @@ namespace ER_WPF.Query
                 if (_stat_spdef_max != value)
                 {
                     _stat_spdef_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -329,7 +341,7 @@ namespace ER_WPF.Query
                 if (_stat_speed_min != value)
                 {
                     _stat_speed_min = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
@@ -341,129 +353,34 @@ namespace ER_WPF.Query
                 if (_stat_speed_max != value)
                 {
                     _stat_speed_max = value;
-                    UpdateQuery();
+                    Update();
                 }
             }
         }
 
-        
 
-        private void UpdateQuery()
+        public void Init()
         {
-            IQueryable<Models.pokemon> pokemonQuery = this._context.pokemon;
-
-            //Ability
-            if (this.Ability != null && this.Ability.Length > 0)
+            UpdateQuery();
+            this.pokemonBriefDetails.Clear();
+            foreach (Models.pokemon p in this.Results)
             {
-                pokemonQuery = pokemonQuery.Where(p =>
-                    _context.ability
-                    .Where(a => a.name == this.Ability)
-                    .Any(a => a.id == p.primary_ability || a.id == p.secondary_ability || a.id == p.hidden_ability)
-                );
+                this.pokemonBriefDetails.Add(new PokemonBriefDetails(p));
             }
-
-            //Move
-            if (this.KnowsMove != null && this.KnowsMove.Length > 0)
+        }
+        public void Update()
+        {
+            UpdateQuery();
+            this.pokemonBriefDetails.Clear();
+            foreach (Models.pokemon p in this.Results)
             {
-                pokemonQuery = pokemonQuery.Where(p => _context.pokemon_move
-                    .Any(pm => pm.pokemon == p.id &&
-                         _context.move
-                         .Where(m => m.name == this.KnowsMove)
-                         .Any(m => m.id == pm.move)
-                    )
-                );
+                this.pokemonBriefDetails.Add(new PokemonBriefDetails(p));
             }
-
-            //Type
-            bool type1exists = this.Type1 != null && this.Type1.Length > 0;
-            bool type2exists = this.Type2 != null && this.Type2.Length > 0;
-            if (type1exists && type2exists && this.Type1 != this.Type2)
-            {
-                pokemonQuery = pokemonQuery.Where(p => (p.primary_type == this.Type1 && p.secondary_type == this.Type2 || p.secondary_type == this.Type1 && p.primary_type == this.Type2));
-            }
-            else if (this.Type1 != null && this.Type1.Length > 0)
-            {
-                pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type1 || p.secondary_type == this.Type1);
-            }
-            else if (this.Type2 != null && this.Type2.Length > 0)
-            {
-                pokemonQuery = pokemonQuery.Where(p => p.primary_type == this.Type2 || p.secondary_type == this.Type2);
-            }
-
-            //Generation
-            if (this.Generation != null)
-            {
-                pokemonQuery = pokemonQuery.Where(p =>
-                    _context.pokemon_species
-                    .Where(ps => ps.id == p.species)
-                    .Any(ps => ps.generation == this.Generation)
-                );
-            }
-
-            //Legendary Status
-            if (this.LegendaryStatus != null) {
-                bool isLegendary = this.LegendaryStatus == LegendaryStatuses.Legendary;
-                bool isMythical = this.LegendaryStatus == LegendaryStatuses.Mythical;
-                pokemonQuery = pokemonQuery.Where(p =>
-                    _context.pokemon_species
-                    .Where(ps => ps.id == p.species)
-                    .Any(ps => ps.is_legendary == isLegendary && ps.is_mythical == isMythical)
-                );
-            }
-
-            //Apearance - Color
-            if (this.Appearance_Color != null && this.Appearance_Color.Length > 0)
-            {
-                pokemonQuery = pokemonQuery.Where(p =>
-                    _context.pokemon_species
-                    .Where(ps => ps.id == p.species)
-                    .Any(ps => ps.color == this.Appearance_Color)
-                );
-            }
-
-            //Apearance - Shape
-            if (this.Appearance_Shape != null && this.Appearance_Shape.Length > 0)
-            {
-                pokemonQuery = pokemonQuery.Where(p =>
-                    _context.pokemon_species
-                    .Where(ps => ps.id == p.species)
-                    .Any(ps => ps.shape == this.Appearance_Shape)
-                );
-            }
-
-            //Apearance - Height 
-            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.height >= this.Appearance_Height_Min);
-            if (this.Appearance_Height_Max != null) pokemonQuery = pokemonQuery.Where(p => p.height <= this.Appearance_Height_Max);
-
-            //Apearance - Weight
-            if (this.Appearance_Height_Min != null) pokemonQuery = pokemonQuery.Where(p => p.weight >= this.Appearance_Weight_Min);
-            if (this.Appearance_Height_Max != null) pokemonQuery = pokemonQuery.Where(p => p.weight <= this.Appearance_Weight_Max);
-
-            //Apearance - HP - filtruje pokemony podle minimalní a maximální hodnoty hp
-            if (this.Stat_HP_Min != null) pokemonQuery = pokemonQuery.Where(p => p.hp >= this.Stat_HP_Min);
-            if (this.Stat_HP_Max != null) pokemonQuery = pokemonQuery.Where(p => p.hp <= this.Stat_HP_Max);
-
-            //Apearance - Attack
-            if (this.Stat_Attack_Min != null) pokemonQuery = pokemonQuery.Where(p => p.attack >= this.Stat_Attack_Min);
-            if (this.Stat_Attack_Max != null) pokemonQuery = pokemonQuery.Where(p => p.attack <= this.Stat_Attack_Max);
-
-            //Apearance - Defense
-            if (this.Stat_Defense_Min != null) pokemonQuery = pokemonQuery.Where(p => p.defense >= this.Stat_Defense_Min);
-            if (this.Stat_Defense_Max != null) pokemonQuery = pokemonQuery.Where(p => p.defense <= this.Stat_Defense_Max);
-
-            //Apearance - Special Attack
-            if (this.Stat_SpAtt_Min != null) pokemonQuery = pokemonQuery.Where(p => p.special_attack >= this.Stat_SpAtt_Min);
-            if (this.Stat_SpAtt_Max != null) pokemonQuery = pokemonQuery.Where(p => p.special_attack <= this.Stat_SpAtt_Max);
-
-            //Apearance - Special Defense
-            if (this.Stat_SpDef_Min != null) pokemonQuery = pokemonQuery.Where(p => p.special_defense >= this.Stat_SpDef_Min);
-            if (this.Stat_SpDef_Max != null) pokemonQuery = pokemonQuery.Where(p => p.special_defense <= this.Stat_SpDef_Max);
-
-            //Apearance - Speed
-            if (this.Stat_Speed_Min != null) pokemonQuery = pokemonQuery.Where(p => p.speed >= this.Stat_Speed_Min);
-            if (this.Stat_Speed_Max != null) pokemonQuery = pokemonQuery.Where(p => p.speed <= this.Stat_Speed_Max);
-
-            this.pokemonResults = pokemonQuery.ToList();
+            this.window.UpdateGrid();
+        }
+        public void UpdateQuery()
+        {
+            //TODO
         }
     }
 }

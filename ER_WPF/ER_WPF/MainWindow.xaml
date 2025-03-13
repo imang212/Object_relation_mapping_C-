@@ -3,48 +3,121 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Pokemon List" Height="720" Width="1000"
         WindowStartupLocation="CenterScreen">
-    <Grid>
-        <DataGrid x:Name="PokemonDataGrid" AutoGenerateColumns="False" Margin="22,20,0,0" SelectionChanged="PokemonDataGrid_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Height="630" Width="720" IsReadOnly="True" HeadersVisibility="None" GridLinesVisibility="None">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Image Source="{Binding Sprite}" Width="100" Height="100" Margin="5"/>
-                                <TextBlock Text="{Binding name}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Grid.Column="1" Margin="720,0,0,0">
-            <Button x:Name="SearchButton" Content="SEARCH" Margin="40,20,0,0" Click="SearchButton_Click" FontWeight="Bold" IsCancel="True" Width="197" Height="30" HorizontalAlignment="Left"/>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+        <ScrollViewer VerticalAlignment="Top" Name="DataScrollViewer" Width="680" Height="630" Margin="20,20,0,0">
+            <StackPanel Name="DataStackPanel"></StackPanel>
+        </ScrollViewer>
+        <StackPanel Margin="0,0,0,0">
+            <Button x:Name="Remove" Content="REMOVE" Margin="40,20,0,0" Click="RemoveButton_Click" FontWeight="Bold" IsCancel="True" Width="197" Height="30" HorizontalAlignment="Left"/>
             <Label Content="NAME:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <TextBox x:Name="NameTextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" Height="25" TextChanged="Name_TextChanged"/>
             <Label Content="TYPE:" HorizontalAlignment="Left" Width="70" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
             <Grid Margin="0,0,0,10">
-                <ComboBox HorizontalAlignment="Left" Margin="45,0,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="Type1_SelectionChanged"/>
-                <ComboBox  Margin="158,0,0,0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="Type2_SelectionChanged"/>
+                <ComboBox Name="Type1ComboBox" HorizontalAlignment="Left" Margin="45,0,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="Type1_SelectionChanged">
+                    <ComboBoxItem>Any</ComboBoxItem>
+                    <ComboBoxItem>Bug</ComboBoxItem>
+                    <ComboBoxItem>Dark</ComboBoxItem>
+                    <ComboBoxItem>Dragon</ComboBoxItem>
+                    <ComboBoxItem>Electric</ComboBoxItem>
+                    <ComboBoxItem>Fairy</ComboBoxItem>
+                    <ComboBoxItem>Fighting</ComboBoxItem>
+                    <ComboBoxItem>Fire</ComboBoxItem>
+                    <ComboBoxItem>Flying</ComboBoxItem>
+                    <ComboBoxItem>Ghost</ComboBoxItem>
+                    <ComboBoxItem>Grass</ComboBoxItem>
+                    <ComboBoxItem>Ground</ComboBoxItem>
+                    <ComboBoxItem>Ice</ComboBoxItem>
+                    <ComboBoxItem>Normal</ComboBoxItem>
+                    <ComboBoxItem>Poison</ComboBoxItem>
+                    <ComboBoxItem>Psychic</ComboBoxItem>
+                    <ComboBoxItem>Rock</ComboBoxItem>
+                    <ComboBoxItem>Steel</ComboBoxItem>
+                    <ComboBoxItem>Water</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="Type2ComboBox" Margin="158,0,0,0" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="Type2_SelectionChanged">
+                    <ComboBoxItem>Any</ComboBoxItem>
+                    <ComboBoxItem>Bug</ComboBoxItem>
+                    <ComboBoxItem>Dark</ComboBoxItem>
+                    <ComboBoxItem>Dragon</ComboBoxItem>
+                    <ComboBoxItem>Electric</ComboBoxItem>
+                    <ComboBoxItem>Fairy</ComboBoxItem>
+                    <ComboBoxItem>Fighting</ComboBoxItem>
+                    <ComboBoxItem>Fire</ComboBoxItem>
+                    <ComboBoxItem>Flying</ComboBoxItem>
+                    <ComboBoxItem>Ghost</ComboBoxItem>
+                    <ComboBoxItem>Grass</ComboBoxItem>
+                    <ComboBoxItem>Ground</ComboBoxItem>
+                    <ComboBoxItem>Ice</ComboBoxItem>
+                    <ComboBoxItem>Normal</ComboBoxItem>
+                    <ComboBoxItem>Poison</ComboBoxItem>
+                    <ComboBoxItem>Psychic</ComboBoxItem>
+                    <ComboBoxItem>Rock</ComboBoxItem>
+                    <ComboBoxItem>Steel</ComboBoxItem>
+                    <ComboBoxItem>Water</ComboBoxItem>
+                </ComboBox>
             </Grid>
             <Grid Margin="0,-2,0,0">
                 <Label Grid.Column="0" Content="GENERATION:" HorizontalAlignment="Left" Margin="40,-4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="158,0,0,4" Width="80" SelectionChanged="Generation_SelectionChanged" RenderTransformOrigin="0.309,0.685"/>
+                <ComboBox Name="GenerationComboBox" HorizontalAlignment="Left" Margin="158,0,0,4" Width="80" SelectionChanged="Generation_SelectionChanged" RenderTransformOrigin="0.309,0.685">
+                    <ComboBoxItem>Any</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                    <ComboBoxItem>8</ComboBoxItem>
+                    <ComboBoxItem>9</ComboBoxItem>
+                </ComboBox>
             </Grid>
             <Label Content="KNOWS MOVE:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-            <TextBox x:Name="KnowsMove_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="KnowsMove_TextChanged" Height="20"/>
+            <TextBox x:Name="KnowsMove_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="KnowsMove_TextChanged" Height="25"/>
             <Label Content="ABILITY:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-            <TextBox x:Name="Ability_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="Ability_TextChanged" Height="21"/>
+            <TextBox x:Name="Ability_TextBox" TextWrapping="Wrap" Text="" Margin="40,0,0,0" FontSize="18" HorizontalAlignment="Left" Width="197" TextChanged="Ability_TextChanged" Height="25"/>
             <Label Content="LEGENDARY:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118" RenderTransformOrigin="0.451,0.784"/>
-            <ComboBox HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="LegendaryStatus_SelectionChanged"/>
+            <ComboBox Name="IsLegendaryComboBox" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="LegendaryStatus_SelectionChanged">
+                <ComboBoxItem>Any</ComboBoxItem>
+                <ComboBoxItem>Legendary</ComboBoxItem>
+                <ComboBoxItem>Mythical</ComboBoxItem>
+                <ComboBoxItem>None</ComboBoxItem>
+            </ComboBox>
             <Label Content="APPEARANCE:" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
             <Grid Margin="0,0,0,0">
                 <Label Content="COLOR:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.474,-1.683"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Color_SelectionChanged"/>
+                <ComboBox Name="AppearanceColorComboBox" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Color_SelectionChanged">
+                    <ComboBoxItem Tag="Any">Any</ComboBoxItem>
+                    <ComboBoxItem Tag="white">White</ComboBoxItem>
+                    <ComboBoxItem Tag="gray">Gray</ComboBoxItem>
+                    <ComboBoxItem Tag="black">Black</ComboBoxItem>
+                    <ComboBoxItem Tag="red">Red</ComboBoxItem>
+                    <ComboBoxItem Tag="green">Green</ComboBoxItem>
+                    <ComboBoxItem Tag="blue">Blue</ComboBoxItem>
+                    <ComboBoxItem Tag="yellow">Yellow</ComboBoxItem>
+                    <ComboBoxItem Tag="pink">Pink</ComboBoxItem>
+                    <ComboBoxItem Tag="brown">Brown</ComboBoxItem>
+                    <ComboBoxItem Tag="purple">Purple</ComboBoxItem>
+                </ComboBox>
             </Grid>
             <Grid Margin="0,0,0,0">
                 <Label Content="SHAPE:" HorizontalAlignment="Left" Margin="60,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="118"/>
-                <ComboBox HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Shape_SelectionChanged"/>
+                <ComboBox Name="AppearanceShapeComboBox" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="Appearance_Shape_SelectionChanged">
+                    <ComboBoxItem Tag="Any">Any</ComboBoxItem>
+                    <ComboBoxItem Tag="armor">Armor</ComboBoxItem>
+                    <ComboBoxItem Tag="arms">Arms</ComboBoxItem>
+                    <ComboBoxItem Tag="ball">Ball</ComboBoxItem>
+                    <ComboBoxItem Tag="blob">Blob</ComboBoxItem>
+                    <ComboBoxItem Tag="bug wings">Bug Wings</ComboBoxItem>
+                    <ComboBoxItem Tag="fish">Fish</ComboBoxItem>
+                    <ComboBoxItem Tag="heads">Heads</ComboBoxItem>
+                    <ComboBoxItem Tag="humanoid">Humanoid</ComboBoxItem>
+                    <ComboBoxItem Tag="legs">Legs</ComboBoxItem>
+                    <ComboBoxItem Tag="quadruped">Quadruped</ComboBoxItem>
+                    <ComboBoxItem Tag="squiggle">Squiggle</ComboBoxItem>
+                    <ComboBoxItem Tag="upright">Upright</ComboBoxItem>
+                    <ComboBoxItem Tag="tentacles">Tentacles</ComboBoxItem>
+                    <ComboBoxItem Tag="wings">Wings</ComboBoxItem>
+                </ComboBox>
             </Grid>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="HEIGHT:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
@@ -61,40 +134,40 @@
             <Label Content="STATS:" HorizontalAlignment="Left" Margin="40,-3,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.031,-0.779" Width="118"/>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="HP" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox  x:Name="NumberOnly_PreviewTextInput5" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_HP_Min_TextChanged"/>
+                <TextBox  x:Name="NumberOnly_PreviewTextInput5" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_HP_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput6" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_HP_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput6" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_HP_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="ATTACK:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput7" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Attack_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput7" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_Attack_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput8" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Attack_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput8" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_Attack_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="DEFENSE:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Width="70"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput9" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Defense_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput9" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_Defense_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput10" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Defense_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput10" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_Defense_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="SP.ATT.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput11" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpAtt_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput11" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_SpAtt_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput12" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpAtt_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput12" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_SpAtt_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="SP.DEF.:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput13" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpDef_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput13" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_SpDef_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput14" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_SpDef_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput14" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_SpDef_Max_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,-4,0,0">
                 <Label Content="SPEED:" Margin="60,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Width="70"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput15" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Speed_Min_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput15" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_Speed_Min_TextChanged"/>
                 <Label Content="-" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="14" Width="13"/>
-                <TextBox x:Name="NumberOnly_PreviewTextInput16" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Appearance_Speed_Max_TextChanged"/>
+                <TextBox x:Name="NumberOnly_PreviewTextInput16" Margin="0,4,0,0" VerticalAlignment="Top" Width="46" Height="21" TextChanged="Stat_Speed_Max_TextChanged"/>
             </StackPanel>
         </StackPanel>
-    </Grid>
+    </StackPanel>
 </Window>
